@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2DProject/MainMenu.unity
     guid: 70cf4eac45041224383a84f7261ebae1
+  - enabled: 1
+    path: Assets/Scenes/2DProject/Menu.unity
+    guid: 339d3ebcc6c685949b550000ad849b19
+  - enabled: 1
+    path: Assets/Scenes/2DProject/Nivel_1_Marte.unity
+    guid: 3e4d759d84c7bb14689df1fae5030509
   - enabled: 1
     path: Assets/Scenes/2DProject/InGame.unity
     guid: f5902a25bef88bb4e862e9ccd6583e8d

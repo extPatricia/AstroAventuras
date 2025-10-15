@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour
 
     #region Fields
     public static MusicManager Instance { get; private set; }
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource _audioSource;
     #endregion
 
     private void Awake()
@@ -23,22 +23,22 @@ public class MusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject); //persiste entre escenas
-            audioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
 
             bool isMusicOff = PlayerPrefs.GetInt("MusicOff", 0) == 1;
-            audioSource.mute = isMusicOff;
+            _audioSource.mute = isMusicOff;
         }
     }
 
     public void ToggleMusic()
     {
-        audioSource.mute = !audioSource.mute;
-        PlayerPrefs.SetInt("MusicOff", audioSource.mute ? 1 : 0);
+        _audioSource.mute = !_audioSource.mute;
+        PlayerPrefs.SetInt("MusicOff", _audioSource.mute ? 1 : 0);
     }
 
     public bool IsMuted()
     {
-        return audioSource.mute;
+        return _audioSource.mute;
     }
 
  

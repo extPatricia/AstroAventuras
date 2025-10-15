@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class MusicButton : MonoBehaviour
 {
-    public Sprite soundOn;
-    public Sprite soundOff;
+    public Sprite _soundOn;
+    public Sprite _soundOff;
     [SerializeField] private Image _buttonImage;
     // Start is called before the first frame update
     void Start()
@@ -30,11 +30,11 @@ public class MusicButton : MonoBehaviour
         {
             if (MusicManager.Instance.IsMuted())
             {
-                _buttonImage.sprite = soundOff;
+                _buttonImage.sprite = _soundOff;
             }
             else
             {
-                _buttonImage.sprite = soundOn;
+                _buttonImage.sprite = _soundOn;
             }
         }
     }

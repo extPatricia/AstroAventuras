@@ -33,7 +33,7 @@ public class MainMenuController : MonoBehaviour
 
 	private void StartGame()
 	{
-		SceneManager.LoadScene("Level_1");
+		SceneManager.LoadScene("Nivel_1_Marte");
 	}
     #endregion
 }
