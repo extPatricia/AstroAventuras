@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Platform
   - Ground
+  - Fire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

@@ -8,11 +8,12 @@ public class InputController : MonoBehaviour
 
 	#region Fields
 	[SerializeField] private Jetpack _jetpack;
-	#endregion
+    [SerializeField] private Animator _animator;
+    #endregion
 
-	#region Unity Callbacks
-	// Start is called before the first frame update
-	void Start()
+    #region Unity Callbacks
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
@@ -20,19 +21,21 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		//Horizontal Fly
-		if (Input.GetAxis("Horizontal") < 0)
-			_jetpack.FlyHorizontal(Jetpack.Direction.Left);
-		if (Input.GetAxis("Horizontal") > 0)
-			_jetpack.FlyHorizontal(Jetpack.Direction.Right);
+        if (Input.GetKeyDown(KeyCode.Space))
+            _animator.SetTrigger("Jump");
+        ////Horizontal Fly
+        //if (Input.GetAxis("Horizontal") < 0)
+        //	_jetpack.FlyHorizontal(Jetpack.Direction.Left);
+        //if (Input.GetAxis("Horizontal") > 0)
+        //	_jetpack.FlyHorizontal(Jetpack.Direction.Right);
 
-		//Vertical Fly
-		if (Input.GetAxis("Vertical") > 0)
-			_jetpack.FlyUp();
-		else
-			_jetpack.StopFlying();
+        ////Vertical Fly
+        //if (Input.GetAxis("Vertical") > 0)
+        //	_jetpack.FlyUp();
+        //else
+        //	_jetpack.StopFlying();
 
-	}
+    }
 	#endregion
 
 	#region Public Methods

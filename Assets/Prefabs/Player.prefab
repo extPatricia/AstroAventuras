@@ -52,6 +52,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jetpack: {fileID: 6202818291053993745}
+  _velocidad: 5
+  _jumpForce: 15
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _velocidadSubir: 3
+  _subirEscalera: 0
 --- !u!114 &6202818291053993745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jetpack: {fileID: 6202818291053993745}
+  _animator: {fileID: 0}
 --- !u!212 &6673620376518725302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -203,7 +213,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 2
   m_LinearDrag: 0.2
   m_AngularDrag: 0.05
   m_GravityScale: 1
