@@ -53,13 +53,9 @@ public class Player : MonoBehaviour
         {
             StartClimbing();
         }
-        else if (_isClimbing && !_inLadderZone)
+        else if (_isClimbing && (!_inLadderZone || Mathf.Abs(verticalInput) < 0.05f))
         {
             StopClimbing(); // salir del trigger
-        }
-        else if (_isClimbing && Mathf.Abs(verticalInput) < 0.01f)
-        {
-            StopClimbing(); // soltar teclas dentro de la escalera
         }
         else
         {            
@@ -108,7 +104,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
-            Debug.Log("Salto: " + _forceJump);
             _rb.velocity = new Vector2(_rb.velocity.x, 0f); // reinicia speed vertical
             _rb.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
             _isGrounded = false;
@@ -119,7 +114,7 @@ public class Player : MonoBehaviour
     private void StartClimbing()
     {
         _isClimbing = true;
-        _rb.gravityScale = 0;
+        _rb.gravityScale = 0f;
         _rb.velocity = new Vector2(moveInput * _speed, verticalInput * _speedUpLadder);
         _anim.SetBool("Climbing", true);
     }
@@ -127,7 +122,8 @@ public class Player : MonoBehaviour
     private void StopClimbing()
     {
         _isClimbing = false;
-        _rb.gravityScale = 2;
+        _rb.gravityScale = 1f;
+        _rb.velocity = new Vector2(_rb.velocity.x, 0f);
         _anim.SetBool("Climbing", false);
     }
 

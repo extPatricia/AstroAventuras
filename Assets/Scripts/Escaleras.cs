@@ -8,7 +8,6 @@ public class Escaleras : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player en la escalera");
             collision.GetComponent<Player>().SetOnLadder(true);
         }
     }
@@ -17,7 +16,6 @@ public class Escaleras : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player fuera de la escalera");
             collision.GetComponent<Player>().SetOnLadder(false);
         }
     }
