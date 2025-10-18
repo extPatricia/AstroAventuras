@@ -7,7 +7,6 @@ public class DoorController : MonoBehaviour
     public float _openHeight = 3.0f;
     public float _openSpeed = 2.0f;
 
-
     private Vector3 _closedPosition;
     private Vector3 _openPosition;
     private bool _isOpening = false;

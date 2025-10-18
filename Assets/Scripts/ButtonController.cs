@@ -7,7 +7,8 @@ public class ButtonController : MonoBehaviour
     public Sprite _unpressedSprite;
     public Sprite _pressedSprite;
     public DoorController _doorToOpen;
-    
+    public AudioClip _openDoor;
+
     private SpriteRenderer _spriteRenderer;
     private bool _isPressed = false;
 
@@ -38,6 +39,7 @@ public class ButtonController : MonoBehaviour
             _spriteRenderer.sprite = _pressedSprite;
             if (_doorToOpen != null)
             {
+                AudioSource.PlayClipAtPoint(_openDoor, Camera.main.transform.position);
                 _doorToOpen.OpenDoor();
             }
         }

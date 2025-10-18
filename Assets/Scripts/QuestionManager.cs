@@ -23,10 +23,12 @@ public class QuestionManager : MonoBehaviour
     public TMP_Text _questionText;
     public Button[] _optionButtons;
     public TMP_Text _scoreText;
+    public AudioClip _correctSound;
+    public AudioClip _incorrectSound;
 
     private Question currentQuestion;
     private int _score = 0;
-
+    private TerminalPreguntas _currentTerminal;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +40,9 @@ public class QuestionManager : MonoBehaviour
             // Questions for Lelvel one about math operations
             questionsLevelOne.Add(new Question
             {
-                questionText = "¿Cuánto es 5 + 7?",
-                options = new string[] { "10", "11", "12", "13" },
-                correctOptionIndex = 2
+                questionText = "¿Cuánto es 37 + 24?",
+                options = new string[] { "61", "56", "65", "58" },
+                correctOptionIndex = 0
             });
             questionsLevelOne.Add(new Question
             {
@@ -77,15 +79,14 @@ public class QuestionManager : MonoBehaviour
                 questionText = "¿Cuánto es 36 / 9?",
                 options = new string[] { "3", "2", "6", "4" },
                 correctOptionIndex = 3
-            });
-
-            
+            });           
         }
-
     }
 
-    public void ShowRandomQuestion()
+    public void ShowRandomQuestion(TerminalPreguntas terminalPreguntas)
     {
+        _currentTerminal = terminalPreguntas;
+
         if (questionsLevelOne.Count == 0) return;
 
         int randomIndex = Random.Range(0, questionsLevelOne.Count);
@@ -97,7 +98,6 @@ public class QuestionManager : MonoBehaviour
             int index = i; // Capture index for the listener
             _optionButtons[i].GetComponentInChildren<TMP_Text>().text = currentQuestion.options[i];
             _optionButtons[i].onClick.RemoveAllListeners();
-           // _optionButtons[i].image.sprite = _optionButtons[i].spriteState.selectedSprite == null ? _optionButtons[i].image.sprite : _optionButtons[i].spriteState.selectedSprite;
             _optionButtons[i].onClick.AddListener(() => OnOptionSelected(index));
         }
         _canvasQuiz.SetActive(true);
@@ -113,13 +113,25 @@ public class QuestionManager : MonoBehaviour
             _score += 5;
             _scoreText.text = _score.ToString();
             _canvasQuiz.SetActive(false);
+            AudioSource.PlayClipAtPoint(_correctSound, Camera.main.transform.position);
+
+            if (_currentTerminal != null)
+                _currentTerminal.OnCorrectAnswer();
 
         }
         else
         {
-            _score -= 2;
+            if (_score <= 0)
+                _score = 0;
+            else
+                _score -= 2;
+
             _scoreText.text = _score.ToString();
-            ShowRandomQuestion();
+            AudioSource.PlayClipAtPoint(_incorrectSound, Camera.main.transform.position);
+
+            if (_currentTerminal != null)
+               ShowRandomQuestion(_currentTerminal);
+            
         }
     }
 }
