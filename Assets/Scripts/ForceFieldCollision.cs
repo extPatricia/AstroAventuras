@@ -34,7 +34,7 @@ public class ForceFieldCollision : MonoBehaviour
             }
 
             if(_player != null && _rb != null)
-            {
+            {   
                 Vector2 bounceDirection = (_rb.transform.position - transform.position).normalized;
                 _rb.AddForce(bounceDirection * _forceMagnitude, ForceMode2D.Impulse); // Adjust the force as needed
 
