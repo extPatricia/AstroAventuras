@@ -37,6 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5229819850073432425}
+  - {fileID: 7594030497585805622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6824231244803903919
@@ -52,15 +53,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jetpack: {fileID: 6202818291053993745}
-  _velocidad: 5
-  _jumpForce: 15
-  groundCheck: {fileID: 0}
+  _speed: 5
+  _forceJump: 15
+  groundCheck: {fileID: 7594030497585805622}
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _velocidadSubir: 3
-  _subirEscalera: 0
+  _speedUpLadder: 3
+  teleportTarget: {fileID: 0}
+  _teleportDelay: 1.6
 --- !u!114 &6202818291053993745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jetpack: {fileID: 6202818291053993745}
-  _animator: {fileID: 0}
+  _animator: {fileID: 674720547339587748}
 --- !u!212 &6673620376518725302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -131,8 +133,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1593035111
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 8793639957104055765, guid: 9c447c54c8e0416e9446cadb88c48fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -312,3 +314,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4811536013351142431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7594030497585805622}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7594030497585805622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811536013351142431}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.037, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3032442121949320817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/2DProject/Menu.unity
     guid: 339d3ebcc6c685949b550000ad849b19
   - enabled: 1
-    path: Assets/Scenes/2DProject/Nivel_1_Marte.unity
+    path: Assets/Scenes/2DProject/Nivel_1.unity
     guid: 3e4d759d84c7bb14689df1fae5030509
   - enabled: 1
     path: Assets/Scenes/2DProject/InGame.unity
