@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestionManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class Question
-    {
-        public string questionText;
-        public string[] options;
-        public int correctOptionIndex;
-    }
-
-    [Header("Questions Level 1")]
-    public List<Question> questionsLevelOne;
+    [Header("Questions Sets")]
+    public QuestionData _questionsLevelOne;
+    public QuestionData _questionsLevelTwo;
+    public QuestionData _questionsLevelThree;
+    public QuestionData _questionsLevelFour;
 
     [Header("UI Panels")]
     public GameObject _canvasQuiz;
@@ -26,7 +22,8 @@ public class QuestionManager : MonoBehaviour
     public AudioClip _correctSound;
     public AudioClip _incorrectSound;
 
-    private Question currentQuestion;
+    private List<QuestionData.Question> _currentQuestions;
+    private QuestionData.Question currentQuestion;
     private int _score = 0;
     private TerminalPreguntas _currentTerminal;
 
@@ -35,52 +32,77 @@ public class QuestionManager : MonoBehaviour
     {
         _canvasQuiz.SetActive(false);
 
-        if (questionsLevelOne.Count == 0)
+        //if (questionsLevelOne.Count == 0)
+        //{
+        //    // Questions for Level one about math operations
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 37 + 24?",
+        //        options = new string[] { "61", "56", "65", "58" },
+        //        correctOptionIndex = 0
+        //    });
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 9 - 4?",
+        //        options = new string[] { "5", "6", "7", "8" },
+        //        correctOptionIndex = 0
+        //    });
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 6 x 3?",
+        //        options = new string[] { "18", "20", "16", "15" },
+        //        correctOptionIndex = 0
+        //    });
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 8 / 2?",
+        //        options = new string[] { "2", "3", "4", "5" },
+        //        correctOptionIndex = 2
+        //    });
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 14 - 7?",
+        //        options = new string[] { "5", "6", "7", "8" },
+        //        correctOptionIndex = 2
+        //    });
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 4 x 5?",
+        //        options = new string[] { "15", "20", "25", "30" },
+        //        correctOptionIndex = 1
+        //    });
+        //    questionsLevelOne.Add(new Question
+        //    {
+        //        questionText = "¿Cuánto es 36 / 9?",
+        //        options = new string[] { "3", "2", "6", "4" },
+        //        correctOptionIndex = 3
+        //    });
+        //}
+
+        string _levelName = SceneManager.GetActiveScene().name;
+
+        if(_levelName == "Nivel1")
         {
-            // Questions for Level one about math operations
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 37 + 24?",
-                options = new string[] { "61", "56", "65", "58" },
-                correctOptionIndex = 0
-            });
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 9 - 4?",
-                options = new string[] { "5", "6", "7", "8" },
-                correctOptionIndex = 0
-            });
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 6 x 3?",
-                options = new string[] { "18", "20", "16", "15" },
-                correctOptionIndex = 0
-            });
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 8 / 2?",
-                options = new string[] { "2", "3", "4", "5" },
-                correctOptionIndex = 2
-            });
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 14 - 7?",
-                options = new string[] { "5", "6", "7", "8" },
-                correctOptionIndex = 2
-            });
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 4 x 5?",
-                options = new string[] { "15", "20", "25", "30" },
-                correctOptionIndex = 1
-            });
-            questionsLevelOne.Add(new Question
-            {
-                questionText = "¿Cuánto es 36 / 9?",
-                options = new string[] { "3", "2", "6", "4" },
-                correctOptionIndex = 3
-            });           
+            _currentQuestions = new List<QuestionData.Question>(_questionsLevelOne.questions);
         }
+        else if(_levelName == "Nivel2")
+        {
+           _currentQuestions = new List<QuestionData.Question>(_questionsLevelTwo.questions);
+        }
+        else if(_levelName == "Nivel3")
+        {
+           _currentQuestions = new List<QuestionData.Question>(_questionsLevelThree.questions);
+        }
+        else if(_levelName == "Nivel4")
+        {
+           _currentQuestions = new List<QuestionData.Question>(_questionsLevelFour.questions);
+        }
+        else
+        {
+            Debug.LogError("Nivel no reconocido para las preguntas.");
+        }
+
+
     }
 
     public void ShowRandomQuestion(TerminalPreguntas terminalPreguntas)

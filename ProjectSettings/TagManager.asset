@@ -10,6 +10,7 @@ TagManager:
   - Force field
   - Slime Enemy
   - Fly Enemy
+  - Doble
   layers:
   - Default
   - TransparentFX
