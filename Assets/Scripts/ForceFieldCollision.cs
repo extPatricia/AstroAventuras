@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ForceFieldCollision : MonoBehaviour
@@ -9,6 +10,7 @@ public class ForceFieldCollision : MonoBehaviour
     public float _duration = 0.4f;
     public float _forceMagnitude = 20f;
     public AudioClip _impactSound;
+    public TMP_Text _scoreText;
 
     private Player _player;
     private Rigidbody2D _rb;
@@ -30,6 +32,11 @@ public class ForceFieldCollision : MonoBehaviour
             {
                 GameObject effect = Instantiate(_forceFieldEffect, _puntoImpacto.position, Quaternion.identity);
                 AudioSource.PlayClipAtPoint(_impactSound, Camera.main.transform.position);
+
+                if(int.Parse(_scoreText.text) <= 0)
+                    _scoreText.text = "0";
+                else
+                    _scoreText.text = (int.Parse(_scoreText.text) - 2).ToString();
                 Destroy(effect, _duration); // Destroy the effect after the specified duration
             }
 

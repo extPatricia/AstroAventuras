@@ -116,6 +116,7 @@ public class Player : MonoBehaviour
         _isClimbing = true;
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2(moveInput * _speed, verticalInput * _speedUpLadder);
+        Debug.Log("Climbing: " + verticalInput);
         _anim.SetBool("Climbing", true);
     }
 

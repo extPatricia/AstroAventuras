@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2384287102342964107}
   m_Layer: 0
   m_Name: Force_Field1
-  m_TagString: Untagged
+  m_TagString: Force field
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

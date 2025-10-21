@@ -37,7 +37,7 @@ public class QuestionManager : MonoBehaviour
 
         if (questionsLevelOne.Count == 0)
         {
-            // Questions for Lelvel one about math operations
+            // Questions for Level one about math operations
             questionsLevelOne.Add(new Question
             {
                 questionText = "¿Cuánto es 37 + 24?",
