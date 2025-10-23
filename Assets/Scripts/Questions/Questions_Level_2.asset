@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c255601cf659353458a1f11efbb6078b, type: 3}
+  m_Name: Questions_Level_2
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: "\xBFCu\xE1l es la velocidad de la luz?"
+    options:
+    - 3x10^6 m/s
+    - 3x10^8 m/s
+    - 3x10^5 km/s
+    - 1.5x10^8 m/s
+    correctOptionIndex: 1
+  - questionText: "\xBFC\xF3mo se llama la estrella que est\xE1 en el centro de nuestro
+      sistema solar?"
+    options:
+    - Sirio
+    - Sol
+    - Polaris
+    - Alfa Centauri
+    correctOptionIndex: 1
+  - questionText: "\xBFC\xF3mo se llama el sat\xE9lite natural de la Tierra?"
+    options:
+    - Io
+    - "Tit\xE1n"
+    - Europa
+    - Luna
+    correctOptionIndex: 3
+  - questionText: "\xBFQui\xE9n fue la primera persona en pisar la Luna?"
+    options:
+    - Buzz Aldrin
+    - Neil Amstrong
+    - Yuri Gagarin
+    - Michael Collins
+    correctOptionIndex: 1
+  - questionText: "\xBFEn qu\xE9 a\xF1o el ser humano lleg\xF3 por primera vez a
+      la Luna?"
+    options:
+    - 1971
+    - 1965
+    - 1970
+    - 1969
+    correctOptionIndex: 3
+  - questionText: "\xBFC\xF3mo se llama el grupo de estrellas donde est\xE1 nuestro
+      Sol?"
+    options:
+    - "V\xEDa L\xE1ctea"
+    - "Andr\xF3meda"
+    - "Cintur\xF3n de Ori\xF3n"
+    - Nebulosa del Cangrejo
+    correctOptionIndex: 0
+  - questionText: "\xBFQu\xE9 nombre tiene la gran explosi\xF3n que dio origen al
+      universo?"
+    options:
+    - El Gran Estallido
+    - El Big Bang
+    - "El Origen C\xF3smico"
+    - "La Expansi\xF3n Universal"
+    correctOptionIndex: 1
+  - questionText: "\xBFQu\xE9 son los meteoritos?"
+    options:
+    - "Polvo espacial que brilla en la atm\xF3sfera"
+    - Rocas del espacio que caen a la Tierra
+    - Fragmentos de cometas que orbitan el Sol
+    - "Estrellas peque\xF1as que se apagan"
+    correctOptionIndex: 1
+  - questionText: "\xBFQu\xE9 planeta es famoso por tener un color azul intenso y
+      mucho viento?"
+    options:
+    - Urano
+    - Saturno
+    - Neptuno
+    - Tierra
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 planeta gira m\xE1s r\xE1pido alrededor del Sol?"
+    options:
+    - Venus
+    - Mercurio
+    - Marte
+    - "J\xFApiter"
+    correctOptionIndex: 2
+  - questionText: "\xBFPor qu\xE9 en el espacio no se oye ning\xFAn sonido?"
+    options:
+    - "Porque las ondas son demasiado d\xE9biles"
+    - Porque no hay aire
+    - "Porque el vac\xEDo las absorbe"
+    - "Porque el fr\xEDo las detiene"
+    correctOptionIndex: 1
+  - questionText: "\xBFQu\xE9 planeta tiene el d\xEDa m\xE1s largo?"
+    options:
+    - Mercurio
+    - "J\xFApiter"
+    - Venus
+    - Marte
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 planeta tiene una gran mancha roja (una tormenta gigante?"
+    options:
+    - Neptuno
+    - Saturno
+    - "J\xFApiter"
+    - Urano
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 planeta es el m\xE1s caliente?"
+    options:
+    - Mercurio
+    - Tierra
+    - Marte
+    - Venus
+    correctOptionIndex: 3
+  - questionText: "\xBFQu\xE9 planeta podr\xEDa \"flotar\" en agua por su baja densidad?"
+    options:
+    - Saturno
+    - "J\xFApiter"
+    - Neptuno
+    - Urano
+    correctOptionIndex: 0

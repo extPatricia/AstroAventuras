@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public Transform teleportTarget;    // Punto donde aparecerá el jugador
     public float _teleportDelay = 1.6f;  // Tiempo que tarda la animación de desaparecer
     private bool _isTeleporting = false;
+    public AudioClip _deathSound;
 
     private float moveInput;
     private float verticalInput;
@@ -141,7 +142,6 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.CompareTag("Fire"))
         {
-
             StartCoroutine(TeleportSequence());
         }
     }
@@ -150,20 +150,19 @@ public class Player : MonoBehaviour
     {
         _anim.SetBool("Walk", false);
 
+        AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
+
         _isTeleporting = true;
 
         // Detiene el movimiento del jugador
         _rb.velocity = Vector2.zero;
-
         // Activa la animación de desaparición
         _anim.SetTrigger("Die");
 
         // Espera el tiempo que tarda en "desaparecer"
         yield return new WaitForSeconds(_teleportDelay);
-
         // Teletransporta al jugador
         transform.position = teleportTarget.position;
-
 
         _isTeleporting = false;
         

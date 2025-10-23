@@ -5825,7 +5825,7 @@ GameObject:
   - component: {fileID: 398764974}
   - component: {fileID: 398764973}
   m_Layer: 0
-  m_Name: Terminal_Pregunta2
+  m_Name: Terminal_Pregunta2_Activa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6291,60 +6291,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &966336489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 966336490}
-  - component: {fileID: 966336491}
-  m_Layer: 0
-  m_Name: QuestionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &966336490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966336489}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 740.10565, y: 956.96564, z: -1.3164461}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &966336491
+--- !u!114 &966336491 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+  m_PrefabInstance: {fileID: 5080807069099381205}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966336489}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d284d92f44fb1ee4080e342b72387b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvasQuiz: {fileID: 2132976064}
-  _questionText: {fileID: 1214604674}
-  _optionButtons:
-  - {fileID: 225181203}
-  - {fileID: 660108429}
-  - {fileID: 1808584470}
-  - {fileID: 1105025014}
-  _scoreText: {fileID: 515323822}
-  _correctSound: {fileID: 8300000, guid: 83306f70dbe963d48abd9f936d242ca5, type: 3}
-  _incorrectSound: {fileID: 8300000, guid: 1d8d17d462ab1b747932e0e7ecb60922, type: 3}
 --- !u!1 &1016646984
 GameObject:
   m_ObjectHideFlags: 0
@@ -7230,7 +7187,7 @@ Transform:
   m_GameObject: {fileID: 1301866374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.4, y: -2.26, z: -0.044931408}
+  m_LocalPosition: {x: -10.21, y: -2.68, z: -0.044931408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9501,6 +9458,91 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed79dbccceddd494d954b4f5008fa944, type: 3}
+--- !u!1001 &5080807069099381205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 574407463743204353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_Name
+      value: QuestionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 740.10565
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 956.96564
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3164461
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160705086591953353, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _scoreText
+      value: 
+      objectReference: {fileID: 515323822}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _canvasQuiz
+      value: 
+      objectReference: {fileID: 2132976064}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _questionText
+      value: 
+      objectReference: {fileID: 1214604674}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _optionButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 225181203}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _optionButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 660108429}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _optionButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1808584470}
+    - target: {fileID: 4448718856893338152, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
+      propertyPath: _optionButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1105025014}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d141be6ee78fd744eae2d422f61e2097, type: 3}
 --- !u!1001 &5959116847622784295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9642,6 +9684,10 @@ PrefabInstance:
     - target: {fileID: 1661368116399352914, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
       propertyPath: m_Name
       value: Canvas_Quiz
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661368116399352914, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5466030110112200878, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
       propertyPath: m_Pivot.x
@@ -9989,6 +10035,6 @@ SceneRoots:
   - {fileID: 9155580978451130765}
   - {fileID: 536596224}
   - {fileID: 7074311286075969835}
-  - {fileID: 966336490}
+  - {fileID: 5080807069099381205}
   - {fileID: 391056069}
   - {fileID: 259069619}

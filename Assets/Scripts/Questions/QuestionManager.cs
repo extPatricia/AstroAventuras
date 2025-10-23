@@ -32,68 +32,21 @@ public class QuestionManager : MonoBehaviour
     {
         _canvasQuiz.SetActive(false);
 
-        //if (questionsLevelOne.Count == 0)
-        //{
-        //    // Questions for Level one about math operations
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 37 + 24?",
-        //        options = new string[] { "61", "56", "65", "58" },
-        //        correctOptionIndex = 0
-        //    });
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 9 - 4?",
-        //        options = new string[] { "5", "6", "7", "8" },
-        //        correctOptionIndex = 0
-        //    });
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 6 x 3?",
-        //        options = new string[] { "18", "20", "16", "15" },
-        //        correctOptionIndex = 0
-        //    });
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 8 / 2?",
-        //        options = new string[] { "2", "3", "4", "5" },
-        //        correctOptionIndex = 2
-        //    });
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 14 - 7?",
-        //        options = new string[] { "5", "6", "7", "8" },
-        //        correctOptionIndex = 2
-        //    });
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 4 x 5?",
-        //        options = new string[] { "15", "20", "25", "30" },
-        //        correctOptionIndex = 1
-        //    });
-        //    questionsLevelOne.Add(new Question
-        //    {
-        //        questionText = "¿Cuánto es 36 / 9?",
-        //        options = new string[] { "3", "2", "6", "4" },
-        //        correctOptionIndex = 3
-        //    });
-        //}
-
         string _levelName = SceneManager.GetActiveScene().name;
 
-        if(_levelName == "Nivel1")
+        if(_levelName == "Nivel_1")
         {
             _currentQuestions = new List<QuestionData.Question>(_questionsLevelOne.questions);
         }
-        else if(_levelName == "Nivel2")
+        else if(_levelName == "Nivel_2")
         {
            _currentQuestions = new List<QuestionData.Question>(_questionsLevelTwo.questions);
         }
-        else if(_levelName == "Nivel3")
+        else if(_levelName == "Nivel_3")
         {
            _currentQuestions = new List<QuestionData.Question>(_questionsLevelThree.questions);
         }
-        else if(_levelName == "Nivel4")
+        else if(_levelName == "Nivel_4")
         {
            _currentQuestions = new List<QuestionData.Question>(_questionsLevelFour.questions);
         }
@@ -109,10 +62,10 @@ public class QuestionManager : MonoBehaviour
     {
         _currentTerminal = terminalPreguntas;
 
-        if (questionsLevelOne.Count == 0) return;
+        if (_currentQuestions.Count == 0) return;
 
-        int randomIndex = Random.Range(0, questionsLevelOne.Count);
-        currentQuestion = questionsLevelOne[randomIndex];
+        int randomIndex = Random.Range(0, _currentQuestions.Count);
+        currentQuestion = _currentQuestions[randomIndex];
         _questionText.text = currentQuestion.questionText;
 
         for (int i = 0; i < _optionButtons.Length; i++)
@@ -131,15 +84,16 @@ public class QuestionManager : MonoBehaviour
     {
         if (optionIndex == currentQuestion.correctOptionIndex)
         {
-            questionsLevelOne.Remove(currentQuestion);
+            _currentQuestions.Remove(currentQuestion);
             _score += 5;
             _scoreText.text = _score.ToString();
             _canvasQuiz.SetActive(false);
             AudioSource.PlayClipAtPoint(_correctSound, Camera.main.transform.position);
 
             if (_currentTerminal != null)
-                _currentTerminal.OnCorrectAnswer();
-
+            {
+                 _currentTerminal.OnCorrectAnswer();
+            }               
         }
         else
         {

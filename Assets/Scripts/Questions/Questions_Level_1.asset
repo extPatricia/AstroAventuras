@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c255601cf659353458a1f11efbb6078b, type: 3}
+  m_Name: Questions_Level_1
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: "\xBFCu\xE1nto es 37 + 24?"
+    options:
+    - 61
+    - 56
+    - 74
+    - 65
+    correctOptionIndex: 0
+  - questionText: "\xBFCu\xE1nto es 9 - 4?"
+    options:
+    - 5
+    - 6
+    - 7
+    - 8
+    correctOptionIndex: 0
+  - questionText: "\xBFCu\xE1nto es 6x3?"
+    options:
+    - 20
+    - 18
+    - 15
+    - 31
+    correctOptionIndex: 1
+  - questionText: "\xBFCu\xE1nto es 267/3?"
+    options:
+    - 76
+    - 90
+    - 83
+    - 89
+    correctOptionIndex: 3
+  - questionText: "\xBFCu\xE1nto es 381 - 59?"
+    options:
+    - 137
+    - 97
+    - 122
+    - 162
+    correctOptionIndex: 2
+  - questionText: "\xBFCu\xE1nto es 9x8?"
+    options:
+    - 64
+    - 81
+    - 72
+    - 68
+    correctOptionIndex: 2
+  - questionText: "\xBFCu\xE1nto es 441/9?"
+    options:
+    - 49
+    - 36
+    - 53
+    - 47
+    correctOptionIndex: 0
