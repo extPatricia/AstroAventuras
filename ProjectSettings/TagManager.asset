@@ -4,18 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Platform
-  - Ground
   - Fire
-  - Force field
-  - Slime Enemy
   - Fly Enemy
+  - Slime Enemy
+  - Ground
+  - Force field
   - DoblePregunta
+  - Platform
+  - Jetpack
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
   - 
@@ -45,18 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3958535253
+  - name: Fondo
+    uniqueID: 3406663855
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Foreground
-    uniqueID: 2769011573
-    locked: 0
-  - name: Player
-    uniqueID: 1593035111
-    locked: 0
-  - name: UI
-    uniqueID: 164557187
     locked: 0

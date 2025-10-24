@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using JetBrains.Annotations;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
@@ -33,7 +34,9 @@ public class Player : MonoBehaviour
     private float moveInput;
     private float verticalInput;
     private bool _isGrounded = true;
-    
+
+    private bool _jetpackEnabled;
+
     private void Start()
 	{
 		_rb = GetComponent<Rigidbody2D>();
@@ -42,8 +45,7 @@ public class Player : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-	{
-        //_anim.SetBool("Flying", _jetpack.Flying);
+	{     
         if (_isTeleporting) return;
 
         // Movimiento horizontal y vertical
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
         {            
             HandleMovement();
             HandleJump();
+            HandleFlying();
         }
     }
     public void SetOnLadder(bool value)
@@ -70,6 +73,11 @@ public class Player : MonoBehaviour
 
         if(!value)
             StopClimbing();
+    }
+
+    public void SetEnableJetpack(bool value)
+    {
+        _jetpackEnabled = value;
     }
 
     private void FixedUpdate()
@@ -109,6 +117,32 @@ public class Player : MonoBehaviour
             _rb.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
             _isGrounded = false;
             _anim.SetTrigger("Jump");
+        }
+    }
+
+    private void HandleFlying()
+    {
+        if (!_jetpackEnabled) return;
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            _jetpack.FlyUp();
+            _anim.SetBool("Flying", true);
+        }
+        else
+        {
+            _jetpack.StopFlying();
+            _anim.SetBool("Flying", false);
+        }
+
+        //Horizontal Fly
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            _jetpack.FlyHorizontal(Jetpack.Direction.Left);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            _jetpack.FlyHorizontal(Jetpack.Direction.Right);
         }
     }
 

@@ -21,19 +21,18 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            _animator.SetTrigger("Jump");
-        ////Horizontal Fly
-        //if (Input.GetAxis("Horizontal") < 0)
-        //	_jetpack.FlyHorizontal(Jetpack.Direction.Left);
-        //if (Input.GetAxis("Horizontal") > 0)
-        //	_jetpack.FlyHorizontal(Jetpack.Direction.Right);
 
-        ////Vertical Fly
-        //if (Input.GetAxis("Vertical") > 0)
-        //	_jetpack.FlyUp();
-        //else
-        //	_jetpack.StopFlying();
+        //Horizontal Fly
+        if (Input.GetAxis("Horizontal") < 0)
+            _jetpack.FlyHorizontal(Jetpack.Direction.Left);
+        if (Input.GetAxis("Horizontal") > 0)
+            _jetpack.FlyHorizontal(Jetpack.Direction.Right);
+
+        //Vertical Fly
+        if (Input.GetAxis("Vertical") > 0)
+            _jetpack.FlyUp();
+        else
+            _jetpack.StopFlying();
 
     }
 	#endregion

@@ -87,7 +87,7 @@ MonoBehaviour:
     - Mercurio
     - Marte
     - "J\xFApiter"
-    correctOptionIndex: 2
+    correctOptionIndex: 1
   - questionText: "\xBFPor qu\xE9 en el espacio no se oye ning\xFAn sonido?"
     options:
     - "Porque las ondas son demasiado d\xE9biles"
