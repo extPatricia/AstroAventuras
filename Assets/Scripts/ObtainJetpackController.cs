@@ -7,11 +7,13 @@ public class ObtainJetpackController : MonoBehaviour
 {
     public AudioClip _obtainSound;
 
+    private Jetpack _jetpack;
     private Player _player;
 
     private void Start()
     {
         _player = FindObjectOfType<Player>();
+        _jetpack = _player.GetComponent<Jetpack>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,7 +23,11 @@ public class ObtainJetpackController : MonoBehaviour
             if (_player != null)
             {
                 _player.SetEnableJetpack(true);
+                
                 AudioSource.PlayClipAtPoint(_obtainSound, Camera.main.transform.position);
+
+                FindAnyObjectByType<UIController>().SetJetpack(_jetpack);
+
                 Destroy(gameObject);
             }
         }

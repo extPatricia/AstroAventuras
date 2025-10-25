@@ -18,13 +18,11 @@ public class QuestionManager : MonoBehaviour
     public GameObject _canvasQuiz;
     public TMP_Text _questionText;
     public Button[] _optionButtons;
-    public TMP_Text _scoreText;
     public AudioClip _correctSound;
     public AudioClip _incorrectSound;
 
     private List<QuestionData.Question> _currentQuestions;
     private QuestionData.Question currentQuestion;
-    private int _score = 0;
     private TerminalPreguntas _currentTerminal;
 
     // Start is called before the first frame update
@@ -54,8 +52,6 @@ public class QuestionManager : MonoBehaviour
         {
             Debug.LogError("Nivel no reconocido para las preguntas.");
         }
-
-
     }
 
     public void ShowRandomQuestion(TerminalPreguntas terminalPreguntas)
@@ -85,8 +81,7 @@ public class QuestionManager : MonoBehaviour
         if (optionIndex == currentQuestion.correctOptionIndex)
         {
             _currentQuestions.Remove(currentQuestion);
-            _score += 5;
-            _scoreText.text = _score.ToString();
+            GameController.Instance.AddPoints(5);
             _canvasQuiz.SetActive(false);
             AudioSource.PlayClipAtPoint(_correctSound, Camera.main.transform.position);
 
@@ -97,16 +92,16 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
-            if (_score <= 0)
-                _score = 0;
-            else
-                _score -= 2;
-
-            _scoreText.text = _score.ToString();
+            GameController.Instance.RemovePoints(2);
             AudioSource.PlayClipAtPoint(_incorrectSound, Camera.main.transform.position);
 
             if (_currentTerminal != null)
-               ShowRandomQuestion(_currentTerminal);
+            {
+
+
+                Debug.Log("Llamando a OnIncorrectAnswer en TerminalPreguntas");
+                ShowRandomQuestion(_currentTerminal);
+            }
             
         }
     }

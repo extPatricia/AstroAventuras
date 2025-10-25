@@ -8,7 +8,6 @@ public class Escaleras : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player on ladder");
             collision.GetComponent<Player>().SetOnLadder(true);
         }
     }

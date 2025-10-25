@@ -15,7 +15,7 @@ public class ItemNose : Item
 		if (collision.gameObject.tag == "Player")
 		{
 			Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();			
-			jetpack.AddEnergy(NOSE_DAMAGE);
+			//jetpack.AddEnergy(NOSE_DAMAGE);
 			Recolected();
 		}
 	}

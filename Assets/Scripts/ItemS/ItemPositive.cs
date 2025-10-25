@@ -16,7 +16,7 @@ public class ItemPositive : Item
 		if (collision.gameObject.tag == "Player")
 		{
 			Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();			
-			jetpack.AddEnergy(POSITIVE_HEAL);
+			//jetpack.AddEnergy(POSITIVE_HEAL);
 			Recolected();
 		}
 	}

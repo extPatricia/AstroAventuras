@@ -5,30 +5,39 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
-	#region Properties
-	#endregion
+    #region Properties
+    #endregion
 
-	#region Fields
-	[SerializeField] private Jetpack _jetpack;
-	[SerializeField] private Slider _energySlider;
-	[SerializeField] private TextMeshProUGUI _textSlider;
-	#endregion
+    #region Fields
+    [SerializeField] private Jetpack _jetpack;
+    [SerializeField] private Slider _energySlider;
+    #endregion
 
-	#region Unity Callbacks
+    #region Unity Callbacks
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        _energySlider.gameObject.SetActive(false);
+    }
 
-
-    // Update is called once per frame
     void Update()
     {
-		_energySlider.value = _jetpack.Energy;
-		_textSlider.text = ((int)_jetpack.transform.position.y).ToString();
+        if (_jetpack != null)
+        {
+            _energySlider.gameObject.SetActive(true);
+            _energySlider.maxValue = 70;
+            _energySlider.value = GameController.Instance._puntos;
+        }
+        else
+        {
+            _energySlider.gameObject.SetActive(false);
+        }
+    }
+    #endregion
 
-	}
-	#endregion
+    public void SetJetpack(Jetpack jetpack)
+    {
+        _jetpack = jetpack;
+    }
 
-	#region Public Methods
-	#endregion
-
-	#region Private Methods
-	#endregion   
 }

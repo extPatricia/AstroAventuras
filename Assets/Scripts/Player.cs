@@ -151,7 +151,6 @@ public class Player : MonoBehaviour
         _isClimbing = true;
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2(moveInput * _speed, verticalInput * _speedUpLadder);
-        Debug.Log("Climbing: " + verticalInput);
         _anim.SetBool("Climbing", true);
     }
 
@@ -182,6 +181,8 @@ public class Player : MonoBehaviour
 
     IEnumerator TeleportSequence()
     {
+        GameController.Instance.RemovePoints(2);
+
         _anim.SetBool("Walk", false);
 
         AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);

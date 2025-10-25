@@ -6,7 +6,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyController : MonoBehaviour
 {
-    public TMP_Text _scoreText;
     public float _speed = 2f;                
     public float _moveDistance = 1.5f;
     public float _forceMagnitude = 20f;
@@ -56,10 +55,7 @@ public class EnemyController : MonoBehaviour
             GameObject effect = Instantiate(_impactEffect, _puntoImpacto.position, Quaternion.identity);
             AudioSource.PlayClipAtPoint(_impactSound, Camera.main.transform.position);
 
-            if (int.Parse(_scoreText.text) <= 0)
-                _scoreText.text = "0";
-            else
-                _scoreText.text = (int.Parse(_scoreText.text) - 5).ToString();
+            GameController.Instance.RemovePoints(4);
 
             Destroy(effect, _durationEffect); // Destroy the effect after the specified duration
         }

@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Plugins/Space Adventure/Scenes/Main Menu.unity
-    guid: d6016cbb779e99e48bf384386441f88e
+    path: Assets/Scenes/2DProject/Menu.unity
+    guid: 339d3ebcc6c685949b550000ad849b19
   - enabled: 1
-    path: Assets/Plugins/Space Adventure/Scenes/Game.unity
-    guid: 1f84376ce564cf74ab0863c8368808a8
+    path: Assets/Scenes/2DProject/Nivel_1.unity
+    guid: 3e4d759d84c7bb14689df1fae5030509
+  - enabled: 1
+    path: Assets/Scenes/2DProject/Nivel_2.unity
+    guid: bf52fb5c5633f5748a621e4faed5ed0b
   m_configObjects: {}

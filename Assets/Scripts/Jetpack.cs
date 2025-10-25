@@ -11,26 +11,27 @@ public class Jetpack : MonoBehaviour
 	}
 
 	#region Properties
-	public float Energy 
-	{
-		get
-		{
-			return _energy;
-		}
-		set
-		{
-			_energy = Mathf.Clamp(value,0,_maxEnergy);
-		}
-	}
+	//public float Energy 
+	//{
+	//	get
+	//	{
+	//		return _energy;
+	//	}
+	//	set
+	//	{
+	//		_energy = Mathf.Clamp(value,0,_maxEnergy);
+	//	}
+	//}
 	public bool Flying { get; set; }
 	#endregion
 
 	#region Fields							     
 	private Rigidbody2D _targetRB;
-	[SerializeField] private float _energy;
-	[SerializeField] private float _maxEnergy;
+
+	//[SerializeField] private float _energy;
+    //[SerializeField] private float _maxEnergy;
 	[SerializeField] private float _energyFlyingRatio;
-	[SerializeField] private float _energyRegenerationRatio;
+	//[SerializeField] private float _energyRegenerationRatio;
 	[SerializeField] private float _horizontalForce;
 	[SerializeField] private float _flyForce;
 
@@ -41,11 +42,6 @@ public class Jetpack : MonoBehaviour
 	{
 		_targetRB = GetComponent<Rigidbody2D>();
 	}
-	// Start is called before the first frame update
-	void Start()
-	{
-		Energy = _maxEnergy;
-	}
 
 	// Update is called once per physic frame
 	void FixedUpdate()
@@ -55,8 +51,8 @@ public class Jetpack : MonoBehaviour
 
 		//Le quitamos el signo a la velocidad si es negativa.
 		//Luego si es menor de 0.1, consideramos que estamos parados y cargamos
-		if (Mathf.Abs(_targetRB.velocity.y) < 0.1f)
-			Regenerate();
+		//if (Mathf.Abs(_targetRB.velocity.y) < 0.1f)
+		//	Regenerate();
 	}
 
 	#endregion
@@ -71,15 +67,15 @@ public class Jetpack : MonoBehaviour
 		Flying = false;
 	}
 
-	public void Regenerate()
-	{		
-		Energy += _energyRegenerationRatio;
-	}
+	//public void Regenerate()
+	//{
+	//	Energy += _energyRegenerationRatio;
+	//}
 
-	public void AddEnergy(float energy)
-	{
-		Energy += energy;
-	}
+	//public void AddEnergy(float energy)
+	//{
+	//	Energy += energy;
+	//}
 
 	public void FlyHorizontal(Direction flyDirection)
 	{
@@ -92,16 +88,23 @@ public class Jetpack : MonoBehaviour
 			_targetRB.AddForce(Vector2.right * _horizontalForce);
 
 	}
+
+	public float GetEnergy() 
+	{ 
+		return GameController.Instance._puntos; 
+	}
 	#endregion
 
 	#region Private Methods
 	private void DoFly()
 	{
-		if (Energy > 0)
+		if (GameController.Instance._puntos > 0)
 		{
 			_targetRB.AddForce(Vector2.up * _flyForce);
-			Energy -= _energyFlyingRatio;
-		}
+			
+			//Gasta puntos
+			GameController.Instance.RemovePoints(_energyFlyingRatio);
+        }
 		else
 			Flying = false;
 	}

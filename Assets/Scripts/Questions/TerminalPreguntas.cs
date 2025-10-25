@@ -70,6 +70,7 @@ public class TerminalPreguntas : MonoBehaviour
 
         if(_player != null)
             _player.enabled = true;
+
         Destroy(this.gameObject);
     }
 
