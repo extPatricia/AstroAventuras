@@ -9,7 +9,8 @@ public class Item : MonoBehaviour, IRecolectable
 		None,
 		NoSe,
 		ErrorCode,
-		PositiveWords
+		PositiveWords,
+		Bomb
 	}
 	#endregion
 

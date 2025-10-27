@@ -52,7 +52,7 @@ public class ItemSpawner : MonoBehaviour
 		int index = Random.Range(0, _spawnList.Count);
 
 		//Random horizontal Position
-		float xPos = Random.Range(-7f, 7f);
+		float xPos = Random.Range(-8f, 8f);
 		Vector2 itemPosition = new Vector2(xPos, transform.position.y);
 
 		//Instantiation

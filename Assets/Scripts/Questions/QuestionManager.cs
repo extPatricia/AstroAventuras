@@ -81,7 +81,7 @@ public class QuestionManager : MonoBehaviour
         if (optionIndex == currentQuestion.correctOptionIndex)
         {
             _currentQuestions.Remove(currentQuestion);
-            GameController.Instance.AddPoints(5);
+         //   GameController.Instance.AddPoints(5);
             _canvasQuiz.SetActive(false);
             AudioSource.PlayClipAtPoint(_correctSound, Camera.main.transform.position);
 
@@ -92,7 +92,7 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
-            GameController.Instance.RemovePoints(2);
+         //   GameController.Instance.RemovePoints(2);
             AudioSource.PlayClipAtPoint(_incorrectSound, Camera.main.transform.position);
 
             if (_currentTerminal != null)
