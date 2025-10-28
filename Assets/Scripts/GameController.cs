@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class GameController : MonoBehaviour
     public TMP_Text _scoreText;
     public int _puntos = 0;
 
+    [SerializeField] private GameObject _pauseMenu;
+
+    private GameObject _pauseMenuInstance;
+    private bool _isPaused = false;
     private float _pointsToRemove;
 
     private void Awake()
@@ -18,11 +24,74 @@ public class GameController : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Menu")
+            return;
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (!_isPaused)
+            {
+                PauseGame();
+            }
+            else
+            {
+                RestartGame();
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Cuando cambia de escena, limpiamos referencias destruidas
+        _pauseMenuInstance = null;
+        _isPaused = false;
+        Time.timeScale = 1f;
+    }
+
+    public void PauseGame()
+    {
+        if (_pauseMenuInstance == null)
+            _pauseMenuInstance = Instantiate(_pauseMenu);
+
+        _pauseMenuInstance.SetActive(true);
+        Time.timeScale = 0f; // Pause the game
+        _isPaused = true;
+    }
+
+    public void RestartGame()
+    {
+        if (_pauseMenuInstance != null)
+            _pauseMenuInstance.SetActive(false);
+
+        Time.timeScale = 1f; // Resume the game
+        _isPaused = false;
+
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f; // Ensure the game is running
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ToggleSound()
+    {
+        AudioListener.pause = !AudioListener.pause;
     }
 
     public void AddPoints(int points)

@@ -22,7 +22,9 @@ public class ItemBomb : Item
 				if (jetpack.transform.position.y > 1)//Para evitar que nos unda en el suelo
 					jetpack.transform.Translate(Vector2.down * ERROR_DOWN_POS);
 			
-			Recolected();
+			GameController.Instance.RemovePoints(2);
+
+            Recolected();
 		}
 	}
 	#endregion
