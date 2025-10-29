@@ -12,6 +12,7 @@ TagManager:
   - DoblePregunta
   - Platform
   - Jetpack
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX

@@ -75,12 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc1d4d491fc6494faf37235ccde6fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _energy: 0
-  _maxEnergy: 100
-  _energyFlyingRatio: 0.2
-  _energyRegenerationRatio: 0.2
+  _energyFlyingRatio: 0.3
   _horizontalForce: 15
-  _flyForce: 300
+  _flyForce: 100
 --- !u!212 &6673620376518725302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,8 +116,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1593035111
-  m_SortingLayer: 0
+  m_SortingLayerID: -1347258959
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 8793639957104055765, guid: 9c447c54c8e0416e9446cadb88c48fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

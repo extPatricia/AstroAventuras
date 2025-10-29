@@ -1,7 +1,8 @@
-using UnityEngine;
-using System;
+using Cinemachine;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
@@ -37,14 +38,45 @@ public class Player : MonoBehaviour
 
     private bool _jetpackEnabled;
 
+    private void Awake()
+    {
+        
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
-	{
-		_rb = GetComponent<Rigidbody2D>();
+	{        
+        _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
     }
 
-	// Update is called once per frame
-	void Update()
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameObject spawn = GameObject.FindWithTag("PlayerSpawn");
+        if (spawn != null)
+        {
+            transform.position = spawn.transform.position;
+        }
+
+        var vcam = FindObjectOfType<CinemachineVirtualCamera>();
+        if (vcam != null)
+        {
+            vcam.Follow = transform;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
 	{     
         if (_isTeleporting) return;
 
@@ -122,6 +154,7 @@ public class Player : MonoBehaviour
 
     private void HandleFlying()
     {
+        Debug.Log("Jetpack enabled: " + _jetpackEnabled);
         if (!_jetpackEnabled) return;
 
         if (Input.GetKey(KeyCode.F))
@@ -148,6 +181,7 @@ public class Player : MonoBehaviour
 
     private void StartClimbing()
     {
+        _anim.SetBool("Walk", false);
         _isClimbing = true;
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2(moveInput * _speed, verticalInput * _speedUpLadder);
@@ -156,6 +190,7 @@ public class Player : MonoBehaviour
 
     private void StopClimbing()
     {
+        _anim.SetBool("Walk", true);
         _isClimbing = false;
         _rb.gravityScale = 1f;
         _rb.velocity = new Vector2(_rb.velocity.x, 0f);

@@ -26,7 +26,7 @@ public class LoadNextScene : MonoBehaviour
                 _player.enabled = false;
             if (_rb != null)
                 _rb.velocity = Vector2.zero;
-              if(_animator != null)
+            if (_animator != null)
                 _animator.SetBool("Walk", false);
 
             StartCoroutine(LoadNextSceneWithSound());
@@ -44,6 +44,8 @@ public class LoadNextScene : MonoBehaviour
             yield return new WaitForSeconds(_levelPassed.length);
 
             SceneManager.LoadScene(nextSceneIndex);
+
+            _player.enabled = true;
 
         }
         else
