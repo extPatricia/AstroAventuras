@@ -13,6 +13,7 @@ TagManager:
   - Platform
   - Jetpack
   - PlayerSpawn
+  - Space
   layers:
   - Default
   - TransparentFX

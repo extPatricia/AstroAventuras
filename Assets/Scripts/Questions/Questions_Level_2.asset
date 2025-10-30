@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Questions_Level_2
   m_EditorClassIdentifier: 
   questions:
-  - questionText: "\xBFCu\xE1l es la velocidad de la luz?"
+  - questionText: "\xBFQu\xE9 es un a\xF1o luz?"
     options:
-    - 3x10^6 m/s
-    - 3x10^8 m/s
-    - 3x10^5 km/s
-    - 1.5x10^8 m/s
+    - El tiempo que tarda la luz en dar la vuelta a la Tierra
+    - "La distancia que la luz recorre en un a\xF1o"
+    - El tiempo que tarda la luz en viajar del Sol a la Tierra
+    - La distancia que recorre la luz en un segundo
     correctOptionIndex: 1
   - questionText: "\xBFC\xF3mo se llama la estrella que est\xE1 en el centro de nuestro
       sistema solar?"

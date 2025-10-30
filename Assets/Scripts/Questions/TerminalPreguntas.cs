@@ -53,13 +53,13 @@ public class TerminalPreguntas : MonoBehaviour
 
         if (_interactionPrompt != null)
         {
-            if(gameObject.name.Equals("Terminal_Pregunta2_Activa"))
+            if(gameObject.name.Equals("Terminal_Pregunta_Activa"))
             {
                _interactionPrompt.SetActive(true);
             }
             else
             {
-                if(gameObject.name.Equals("Terminal_Pregunta5_Cajas") && _destroyItemsController != null)
+                if(gameObject.name.Equals("Terminal_Pregunta_Cajas") && _destroyItemsController != null)
                 {
                     _destroyItemsController.DestroyItem();
                 }             

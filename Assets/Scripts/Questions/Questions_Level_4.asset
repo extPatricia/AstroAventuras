@@ -12,4 +12,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c255601cf659353458a1f11efbb6078b, type: 3}
   m_Name: Questions_Level_4
   m_EditorClassIdentifier: 
-  questions: []
+  questions:
+  - questionText: "\xBFCu\xE1l es la velocidad de la luz?"
+    options:
+    - 3x10^6 m/s
+    - 3x10^8 m/s
+    - 1.5x10^8 m/s
+    - 3x10^8 km/s
+    correctOptionIndex: 1
+  - questionText: "\xBFAproximadamente cu\xE1nto tarda la luz en viajar desde el
+      Sol hasta la Tierra? (en minutos)"
+    options:
+    - 8 min
+    - 1 min
+    - 4 min
+    - 10 min
+    correctOptionIndex: 0
+  - questionText: "Si una nave viaja a 7200 m/s, \xBFcu\xE1ntos kil\xF3metros recorre
+      en 10 segundos?"
+    options:
+    - 7,2 km
+    - 72 km
+    - 720 km
+    - 0,72 km
+    correctOptionIndex: 1
+  - questionText: "\xBFQu\xE9 magnitud se mide en newtons (N)?"
+    options:
+    - "Energ\xEDa"
+    - Masa
+    - Fuerza
+    - Potencia
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 ocurre con la velocidad de un objeto en ca\xEDda libre
+      si no hay resistencia del aire?"
+    options:
+    - Disminuye
+    - Aumenta constantemente
+    - Permanece igual
+    - Depende del peso del objeto
+    correctOptionIndex: 1
+  - questionText: "La Luna da una vuelta completa alrededor de la Tierra en ~27 d\xEDas
+      (rotaci\xF3n orbital). \xBFEso significa que siempre vemos la misma cara de
+      la Luna?"
+    options:
+    - "No, porque gira m\xE1s r\xE1pido que la Tierra"
+    - "S\xED, porque rota al mismo ritmo que orbita"
+    - "No, porque su \xF3rbita es el\xEDptica"
+    - "Solo a veces, seg\xFAn la posici\xF3n del Sol"
+    correctOptionIndex: 1
+  - questionText: "\xBFQu\xE9 instrumento usan los astr\xF3nomos para observar estrellas
+      desde la Tierra?"
+    options:
+    - Microscopio
+    - Radar
+    - "Sat\xE9lite"
+    - Telescopio
+    correctOptionIndex: 3
+  - questionText: "Si la gravedad en la Luna es 1/6 que en la Tierra, y una mochila
+      pesa 12 kgf en la Tierra, \xBFcu\xE1nto ser\xEDa su peso en la Luna?"
+    options:
+    - 6 kgf
+    - 3 kgf
+    - 2 kgf
+    - 4 kgf
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 nombre recibe el camino que sigue un objeto alrededor
+      de otro, por ejemplo, la Tierra alrededor del Sol?"
+    options:
+    - Trayectoria
+    - Giro
+    - "\xD3rbita"
+    - "Rotaci\xF3n"
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 fuerza hace que los objetos caigan hacia el suelo en
+      la Tierra?"
+    options:
+    - Gravedad
+    - Magnetismo
+    - "Fricci\xF3n"
+    - Inercia
+    correctOptionIndex: 0
+  - questionText: "\xBFC\xF3mo se llama la energ\xEDa que tiene un cuerpo debido
+      a su movimiento?"
+    options:
+    - "Energ\xEDa potencial"
+    - "Energ\xEDa t\xE9rmica"
+    - "Energ\xEDa solar"
+    - "Energ\xEDa cin\xE9tica"
+    correctOptionIndex: 3
