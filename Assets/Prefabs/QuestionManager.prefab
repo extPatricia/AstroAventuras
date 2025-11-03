@@ -48,6 +48,7 @@ MonoBehaviour:
   _questionsLevelTwo: {fileID: 11400000, guid: 6580475f28bc0934dac8f6a9e8394312, type: 2}
   _questionsLevelThree: {fileID: 11400000, guid: 1715603df251a2945a6c9e8ec1309fdd, type: 2}
   _questionsLevelFour: {fileID: 11400000, guid: bb7fab506d4682c4d8bd8fddce581aee, type: 2}
+  _questionsLevelFive: {fileID: 11400000, guid: c330349f9b5a1df4d949b5a783b81eb4, type: 2}
   _canvasQuiz: {fileID: 0}
   _questionText: {fileID: 0}
   _optionButtons:
@@ -55,6 +56,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _scoreText: {fileID: 0}
   _correctSound: {fileID: 8300000, guid: 83306f70dbe963d48abd9f936d242ca5, type: 3}
   _incorrectSound: {fileID: 8300000, guid: 1d8d17d462ab1b747932e0e7ecb60922, type: 3}

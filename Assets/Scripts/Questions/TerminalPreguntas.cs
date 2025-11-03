@@ -53,7 +53,7 @@ public class TerminalPreguntas : MonoBehaviour
 
         if (_interactionPrompt != null)
         {
-            if(gameObject.name.Equals("Terminal_Pregunta_Activa"))
+            if (gameObject.name.Equals("Terminal_Pregunta_Activa"))
             {
                _interactionPrompt.SetActive(true);
             }

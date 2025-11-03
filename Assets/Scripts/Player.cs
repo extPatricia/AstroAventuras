@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     private bool _isClimbing = false;
 
     [Header("Muerte")]
-    public Transform teleportTarget;    // Punto donde aparecerá el jugador
     public float _teleportDelay = 1.6f;  // Tiempo que tarda la animación de desaparecer
     private bool _isTeleporting = false;
     public AudioClip _deathSound;
@@ -232,7 +231,11 @@ public class Player : MonoBehaviour
         // Espera el tiempo que tarda en "desaparecer"
         yield return new WaitForSeconds(_teleportDelay);
         // Teletransporta al jugador
-        transform.position = teleportTarget.position;
+        GameObject spawn = GameObject.FindWithTag("PlayerSpawn");
+        if (spawn != null)
+        {
+            transform.position = spawn.transform.position;
+        }
 
         _isTeleporting = false;
         

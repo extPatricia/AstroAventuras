@@ -13,6 +13,7 @@ public class QuestionManager : MonoBehaviour
     public QuestionData _questionsLevelTwo;
     public QuestionData _questionsLevelThree;
     public QuestionData _questionsLevelFour;
+    public QuestionData _questionsLevelFive;
 
     [Header("UI Panels")]
     public GameObject _canvasQuiz;
@@ -48,6 +49,10 @@ public class QuestionManager : MonoBehaviour
         {
            _currentQuestions = new List<QuestionData.Question>(_questionsLevelFour.questions);
         }
+        else if (_levelName == "Nivel_5")
+        {
+           _currentQuestions = new List<QuestionData.Question>(_questionsLevelFive.questions);
+        }
         else
         {
             Debug.LogError("Nivel no reconocido para las preguntas.");
@@ -81,7 +86,7 @@ public class QuestionManager : MonoBehaviour
         if (optionIndex == currentQuestion.correctOptionIndex)
         {
             _currentQuestions.Remove(currentQuestion);
-           // GameController.Instance.AddPoints(5);
+            GameController.Instance.AddPoints(5);
             _canvasQuiz.SetActive(false);
             AudioSource.PlayClipAtPoint(_correctSound, Camera.main.transform.position);
 
@@ -92,14 +97,11 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
-           // GameController.Instance.RemovePoints(2);
+            GameController.Instance.RemovePoints(2);
             AudioSource.PlayClipAtPoint(_incorrectSound, Camera.main.transform.position);
 
             if (_currentTerminal != null)
             {
-
-
-                Debug.Log("Llamando a OnIncorrectAnswer en TerminalPreguntas");
                 ShowRandomQuestion(_currentTerminal);
             }
             

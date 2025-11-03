@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 1693344}
   - component: {fileID: 1693346}
   - component: {fileID: 1693345}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Plataformas
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -6370,7 +6370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100076030677642801, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5100076030677642801, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_TagString
@@ -6382,7 +6382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8169928070208240693, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8169928070208240693, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_TagString
@@ -6390,7 +6390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404542046816216621, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8404542046816216621, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_TagString
@@ -8261,6 +8261,10 @@ PrefabInstance:
       propertyPath: teleportTarget
       value: 
       objectReference: {fileID: 1301866375}
+    - target: {fileID: 6824231244803903919, guid: e19846a3a39bd9842848bcd150224841, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10772,33 +10776,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5100076030677642801, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5100076030677642801, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
     - target: {fileID: 8169928070208240693, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
       propertyPath: m_Name
       value: PlatformHelp_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169928070208240693, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169928070208240693, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404542046816216621, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404542046816216621, guid: 1d11c5959f090a9449dcdaeda726f016, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
