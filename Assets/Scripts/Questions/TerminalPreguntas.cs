@@ -59,10 +59,10 @@ public class TerminalPreguntas : MonoBehaviour
             }
             else
             {
-                if(gameObject.name.Equals("Terminal_Pregunta_Cajas") && _destroyItemsController != null)
+                if (_destroyItemsController != null)
                 {
                     _destroyItemsController.DestroyItem();
-                }             
+                }          
                 Destroy(_interactionPrompt);
             }
         }

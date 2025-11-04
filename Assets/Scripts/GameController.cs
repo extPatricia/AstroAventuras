@@ -86,7 +86,30 @@ public class GameController : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f; // Ensure the game is running
+
+        // Reiniciamos puntos
+        _puntos = 0;
+        _pointsToRemove = 0f;
+        _isPaused = false;
+
+        // Destruimos los objetos de la escena actual que se mantienen entre escenas
+        var player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            Destroy(player.gameObject);
+        }
+
+        var uiController = FindObjectOfType<UIController>();
+        if (uiController != null)
+        {
+            Destroy(uiController.gameObject);
+        }
+
+        // Cargamos el menú principal
         SceneManager.LoadScene("Menu");
+
+        // Destruimos el GameController
+        Destroy(gameObject);
     }
 
     public void ToggleSound()

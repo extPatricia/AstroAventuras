@@ -28,8 +28,10 @@ public class Player : MonoBehaviour
 
     [Header("Muerte")]
     public float _teleportDelay = 1.6f;  // Tiempo que tarda la animación de desaparecer
+    public float _deathDelay = 1f;
     private bool _isTeleporting = false;
     public AudioClip _deathSound;
+    public AudioClip _gameOverSound;
 
     private float moveInput;
     private float verticalInput;
@@ -209,12 +211,19 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.CompareTag("Fire") || collision.collider.CompareTag("Space"))
         {
+            Debug.Log("Player collided with " + collision.collider.tag);
             StartCoroutine(TeleportSequence());
+        }
+
+        if (collision.collider.CompareTag("Space"))
+        {
+            StartCoroutine(ReloadLevel());
         }
     }
 
     IEnumerator TeleportSequence()
     {
+        Debug.Log("Starting teleport sequence");
         GameController.Instance.RemovePoints(2);
 
         _anim.SetBool("Walk", false);
@@ -239,6 +248,22 @@ public class Player : MonoBehaviour
 
         _isTeleporting = false;
         
+    }
+
+    IEnumerator ReloadLevel()
+    {
+        GameController.Instance.RemovePoints(2);
+        int puntosGuardados = GameController.Instance._puntos;
+
+        _anim.SetBool("Walk", false);
+        AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
+        _anim.SetTrigger("Die");
+
+        yield return new WaitForSeconds(_teleportDelay);
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+        GameController.Instance._puntos = puntosGuardados;
     }
 
 }

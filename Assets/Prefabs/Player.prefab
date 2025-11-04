@@ -58,11 +58,12 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   _speedUpLadder: 3
-  teleportTarget: {fileID: 0}
   _teleportDelay: 1.6
+  _deathDelay: 1
   _deathSound: {fileID: 8300000, guid: d485aef9195eabe4e8de2b87df6ec94b, type: 3}
+  _gameOverSound: {fileID: 8300000, guid: 9f74a2a7872fa414caaea59638babb2b, type: 3}
 --- !u!114 &6202818291053993745
 MonoBehaviour:
   m_ObjectHideFlags: 0

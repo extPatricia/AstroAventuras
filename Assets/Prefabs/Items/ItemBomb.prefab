@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
   _particles: {fileID: 1896686847365322715, guid: 7fd5ac730f2ae49458cc4f9e8cff03ce, type: 3}
+  _explosion: {fileID: 8300000, guid: 7e92418e4466787458b12da877ebf01e, type: 3}
 --- !u!212 &8932351883732558869
 SpriteRenderer:
   m_ObjectHideFlags: 0

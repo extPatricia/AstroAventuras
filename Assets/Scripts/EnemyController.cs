@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour
 
     private Vector2 _startPosition;
     private int _direction = 1; // 1 for right, -1 for left
-    private SpriteRenderer _spriteRenderer;
     private Player _player;
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -24,7 +23,6 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         _startPosition = transform.position;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _player = FindObjectOfType<Player>();
         _rb = _player.GetComponent<Rigidbody2D>();
         _animator = _player.GetComponent<Animator>();
@@ -37,7 +35,10 @@ public class EnemyController : MonoBehaviour
             if (Vector2.Distance(_startPosition, transform.position) >= _moveDistance)
             {
                 _direction *= -1; // Change direction
-                _spriteRenderer.flipX = !_spriteRenderer.flipX; // Flip sprite
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                //_spriteRenderer.flipX = !_spriteRenderer.flipX; // Flip sprite, pero con esto solo gira el sprite, no todo el objeto,
+                //por eso se puede buguear la colisión y parece que el slime se queda atascado en una dirección.
             }
         }
         else if (CompareTag("Fly Enemy"))

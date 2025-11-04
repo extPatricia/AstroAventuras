@@ -3,8 +3,9 @@ using System;
 
 public class ItemBomb : Item
 {
-	const float ERROR_FORCE = 10000;
+	const float ERROR_FORCE = 100;
 	const float ERROR_DOWN_POS = 2.5f;
+	public AudioClip _explosion;
 
 	#region Unity Callbacks
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -26,6 +27,9 @@ public class ItemBomb : Item
 
             Recolected();
 		}
-	}
+
+		AudioSource.PlayClipAtPoint(_explosion, Camera.main.transform.position);
+
+    }
 	#endregion
 }

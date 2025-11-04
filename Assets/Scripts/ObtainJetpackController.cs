@@ -28,6 +28,8 @@ public class ObtainJetpackController : MonoBehaviour
 
                 FindAnyObjectByType<UIController>().SetJetpack(_jetpack);
 
+                GameController.Instance.AddPoints(10);
+
                 Destroy(gameObject);
             }
         }

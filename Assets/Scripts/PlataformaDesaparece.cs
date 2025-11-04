@@ -4,17 +4,56 @@ using UnityEngine;
 
 public class PlataformaDesaparece : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] private float _visibleTime = 2.5f;     
+    [SerializeField] private float _invisibleTime = 2f;
+    [SerializeField] private float startDelay = 0f;
+
+    private float _timer;
+    private bool _isVisible = true;
+    private bool _starting = false;
+    private Collider2D _collider;
+    private SpriteRenderer _renderer;
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(DesaparecerPlataforma());
-        }
+        _collider = GetComponent<Collider2D>();
+        _renderer = GetComponent<SpriteRenderer>();
+        _timer = _visibleTime;
     }
 
-    private IEnumerator DesaparecerPlataforma()
+    private void Update()
     {
-        yield return new WaitForSeconds(0.5f); // Espera medio segundo antes de desaparecer
-        gameObject.SetActive(false); // Desactiva la plataforma
+        if (!_starting)
+        {
+            startDelay -= Time.deltaTime;
+            if (startDelay <= 0f)
+            {
+                _starting = true;
+            }
+            else
+            {
+                return;
+            }
+        }
+        _timer -= Time.deltaTime;
+
+        if (_timer <= 0f)
+        {
+            if (_isVisible)
+            {
+                // Hacer invisible
+                _renderer.enabled = false;
+                _collider.enabled = false;
+                _timer = _invisibleTime;
+            }
+            else
+            {
+                // Hacer visible
+                _renderer.enabled = true;
+                _collider.enabled = true;
+                _timer = _visibleTime;
+            }
+            _isVisible = !_isVisible;
+        }
+
     }
 }

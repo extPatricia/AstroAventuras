@@ -11,27 +11,13 @@ public class Jetpack : MonoBehaviour
 	}
 
 	#region Properties
-	//public float Energy 
-	//{
-	//	get
-	//	{
-	//		return _energy;
-	//	}
-	//	set
-	//	{
-	//		_energy = Mathf.Clamp(value,0,_maxEnergy);
-	//	}
-	//}
 	public bool Flying { get; set; }
 	#endregion
 
 	#region Fields							     
 	private Rigidbody2D _targetRB;
 
-	//[SerializeField] private float _energy;
-    //[SerializeField] private float _maxEnergy;
 	[SerializeField] private float _energyFlyingRatio;
-	//[SerializeField] private float _energyRegenerationRatio;
 	[SerializeField] private float _horizontalForce;
 	[SerializeField] private float _flyForce;
 
@@ -48,11 +34,6 @@ public class Jetpack : MonoBehaviour
 	{
 		if (Flying)
 			DoFly();
-
-		//Le quitamos el signo a la velocidad si es negativa.
-		//Luego si es menor de 0.1, consideramos que estamos parados y cargamos
-		//if (Mathf.Abs(_targetRB.velocity.y) < 0.1f)
-		//	Regenerate();
 	}
 
 	#endregion
@@ -66,16 +47,6 @@ public class Jetpack : MonoBehaviour
 	{
 		Flying = false;
 	}
-
-	//public void Regenerate()
-	//{
-	//	Energy += _energyRegenerationRatio;
-	//}
-
-	//public void AddEnergy(float energy)
-	//{
-	//	Energy += energy;
-	//}
 
 	public void FlyHorizontal(Direction flyDirection)
 	{
