@@ -243,7 +243,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(_teleportDelay);
 
         // Teletransporta al jugador
-        transform.position = _lastSafePosition;
+        transform.position = _lastSafePosition + new Vector3(-1f, 0f, 0f); // un poco a la izquierda para evitar colisiones inmediatas
 
         _isTeleporting = false;
         
