@@ -13,58 +13,90 @@ MonoBehaviour:
   m_Name: Questions_Level_3
   m_EditorClassIdentifier: 
   questions:
-  - questionText: "\xBFCu\xE1l es el n\xFAmero que falta en la serie:\n3, 6, 12,
-      24, ? "
+  - questionText: "\xBFCu\xE1l es la velocidad de la luz?"
     options:
-    - 36
-    - 48
+    - 3x10^6 m/s
+    - 3x10^8 m/s
+    - 1.5x10^8 m/s
+    - 3x10^8 km/s
     correctOptionIndex: 1
-  - questionText: "Si x/4+3=8 \xBFcu\xE1nto vale x? "
+  - questionText: "\xBFAproximadamente cu\xE1nto tarda la luz en viajar desde el
+      Sol hasta la Tierra? (en minutos)"
     options:
-    - '20 '
-    - 12
+    - 8 min
+    - 1 min
+    - 4 min
+    - 10 min
     correctOptionIndex: 0
-  - questionText: 20% de 150 = ?
+  - questionText: "Si una nave viaja a 7200 m/s, \xBFcu\xE1ntos kil\xF3metros recorre
+      en 10 segundos?"
     options:
-    - 25
-    - 30
+    - 7,2 km
+    - 72 km
+    - 720 km
+    - 0,72 km
     correctOptionIndex: 1
-  - questionText: "Si multiplicas un n\xFAmero por 5 y al resultado le sumas 7 obtienes
-      27. \xBFCu\xE1l es el n\xFAmero?"
+  - questionText: "\xBFQu\xE9 magnitud se mide en newtons (N)?"
     options:
-    - 4
-    - 5
-    correctOptionIndex: 0
-  - questionText: "Si hoy es viernes, \xBFqu\xE9 d\xEDa ser\xE1 dentro de 9 d\xEDas?"
+    - "Energ\xEDa"
+    - Masa
+    - Fuerza
+    - Potencia
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 ocurre con la velocidad de un objeto en ca\xEDda libre
+      si no hay resistencia del aire?"
     options:
-    - Domingo
-    - Lunes
-    correctOptionIndex: 0
-  - questionText: "Un rect\xE1ngulo tiene base 8 y altura 5. \xBFCu\xE1l es su \xE1rea?"
-    options:
-    - 45
-    - 40
+    - Disminuye
+    - Aumenta constantemente
+    - Permanece igual
+    - Depende del peso del objeto
     correctOptionIndex: 1
-  - questionText: "Si tienes 3/4 de una pizza y comes 1/4, \xBFqu\xE9 fracci\xF3n
-      te queda?"
+  - questionText: "La Luna da una vuelta completa alrededor de la Tierra en ~27 d\xEDas
+      (rotaci\xF3n orbital). \xBFEso significa que siempre vemos la misma cara de
+      la Luna?"
     options:
-    - 1/2
-    - 1/3
-    correctOptionIndex: 0
-  - questionText: "Si repartes 45 caramelos entre 9 amigos por igual, \xBFcu\xE1ntos
-      recibe cada uno?"
-    options:
-    - 6
-    - 5
+    - "No, porque gira m\xE1s r\xE1pido que la Tierra"
+    - "S\xED, porque rota al mismo ritmo que orbita"
+    - "No, porque su \xF3rbita es el\xEDptica"
+    - "Solo a veces, seg\xFAn la posici\xF3n del Sol"
     correctOptionIndex: 1
-  - questionText: "\xBFCu\xE1l es el siguiente n\xFAmero: \n2, 5, 10, 17, 26, ?"
+  - questionText: "\xBFQu\xE9 instrumento usan los astr\xF3nomos para observar estrellas
+      desde la Tierra?"
     options:
-    - 37
-    - 35
+    - Microscopio
+    - Radar
+    - "Sat\xE9lite"
+    - Telescopio
+    correctOptionIndex: 3
+  - questionText: "Si la gravedad en la Luna es 1/6 que en la Tierra, y una mochila
+      pesa 12 kgf en la Tierra, \xBFcu\xE1nto ser\xEDa su peso en la Luna?"
+    options:
+    - 6 kgf
+    - 3 kgf
+    - 2 kgf
+    - 4 kgf
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 nombre recibe el camino que sigue un objeto alrededor
+      de otro, por ejemplo, la Tierra alrededor del Sol?"
+    options:
+    - Trayectoria
+    - Giro
+    - "\xD3rbita"
+    - "Rotaci\xF3n"
+    correctOptionIndex: 2
+  - questionText: "\xBFQu\xE9 fuerza hace que los objetos caigan hacia el suelo en
+      la Tierra?"
+    options:
+    - Gravedad
+    - Magnetismo
+    - "Fricci\xF3n"
+    - Inercia
     correctOptionIndex: 0
-  - questionText: "Un caj\xF3n contiene 12 camisetas: 4 rojas, 5 azules y el resto
-      negras. \xBFCu\xE1ntas negras hay?"
+  - questionText: "\xBFC\xF3mo se llama la energ\xEDa que tiene un cuerpo debido
+      a su movimiento?"
     options:
-    - 4
-    - 3
-    correctOptionIndex: 1
+    - "Energ\xEDa potencial"
+    - "Energ\xEDa t\xE9rmica"
+    - "Energ\xEDa solar"
+    - "Energ\xEDa cin\xE9tica"
+    correctOptionIndex: 3

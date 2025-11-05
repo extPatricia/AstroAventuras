@@ -242,8 +242,19 @@ public class Player : MonoBehaviour
         // Espera el tiempo que tarda en "desaparecer"
         yield return new WaitForSeconds(_teleportDelay);
 
-        // Teletransporta al jugador
-        transform.position = _lastSafePosition + new Vector3(-1f, 0f, 0f); // un poco a la izquierda para evitar colisiones inmediatas
+        if(SceneManager.GetActiveScene().name == "Nivel_5")
+        {
+            GameObject respawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+            if (respawnPoint != null)
+                 transform.position = respawnPoint.transform.position;
+            else
+                Debug.LogWarning("No se encontró el punto de respawn en Nivel_5.");
+        }
+        else
+        {
+            // Teletransporta al jugador
+            transform.position = _lastSafePosition + new Vector3(-1f, 0f, 0f); // un poco a la izquierda para evitar colisiones inmediatas
+        }           
 
         _isTeleporting = false;
         

@@ -61,6 +61,22 @@ public class GameController : MonoBehaviour
         _pauseMenuInstance = null;
         _isPaused = false;
         Time.timeScale = 1f;
+
+        if (scene.name == "Nivel_3")
+        {
+            var player = FindObjectOfType<Player>();
+            if (player != null)
+            {
+                player.SetEnableJetpack(false);
+                var uiController = FindObjectOfType<UIController>();
+                if (uiController != null)
+                {
+                    uiController.SetJetpack(null);
+                }
+
+            }
+
+        }
     }
 
     public void PauseGame()

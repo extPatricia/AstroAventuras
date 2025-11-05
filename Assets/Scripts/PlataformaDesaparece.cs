@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlataformaDesaparece : MonoBehaviour
 {
-    [SerializeField] private float _visibleTime = 2.5f;     
+    [SerializeField] private float _visibleTime = 3f;     
     [SerializeField] private float _invisibleTime = 2f;
     [SerializeField] private float startDelay = 0f;
 

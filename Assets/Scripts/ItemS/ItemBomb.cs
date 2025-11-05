@@ -3,7 +3,7 @@ using System;
 
 public class ItemBomb : Item
 {
-	const float ERROR_FORCE = 100;
+	const float ERROR_FORCE = 300;
 	const float ERROR_DOWN_POS = 2.5f;
 	public AudioClip _explosion;
 

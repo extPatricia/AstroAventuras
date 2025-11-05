@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
         if (_jetpack != null)
         {
             _energySlider.gameObject.SetActive(true);
-            _energySlider.maxValue = 70;
+            _energySlider.maxValue = 100;
             _energySlider.value = GameController.Instance._puntos;
         }
         else
