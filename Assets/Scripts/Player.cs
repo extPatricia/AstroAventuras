@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
     public float _deathDelay = 1f;
     private bool _isTeleporting = false;
     public AudioClip _deathSound;
-    public AudioClip _gameOverSound;
+    public AudioClip _gameOverSound; 
+    private Vector3 _lastSafePosition;
 
     private float moveInput;
     private float verticalInput;
@@ -117,6 +118,9 @@ public class Player : MonoBehaviour
     {
         // Comprobar si está tocando el suelo
         _isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (_isGrounded ) 
+            _lastSafePosition = transform.position;
     }
     
     private void HandleMovement()
@@ -211,7 +215,6 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.CompareTag("Fire") || collision.collider.CompareTag("Space"))
         {
-            Debug.Log("Player collided with " + collision.collider.tag);
             StartCoroutine(TeleportSequence());
         }
 
@@ -223,7 +226,6 @@ public class Player : MonoBehaviour
 
     IEnumerator TeleportSequence()
     {
-        Debug.Log("Starting teleport sequence");
         GameController.Instance.RemovePoints(2);
 
         _anim.SetBool("Walk", false);
@@ -239,12 +241,9 @@ public class Player : MonoBehaviour
 
         // Espera el tiempo que tarda en "desaparecer"
         yield return new WaitForSeconds(_teleportDelay);
+
         // Teletransporta al jugador
-        GameObject spawn = GameObject.FindWithTag("PlayerSpawn");
-        if (spawn != null)
-        {
-            transform.position = spawn.transform.position;
-        }
+        transform.position = _lastSafePosition;
 
         _isTeleporting = false;
         
