@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Fire") || collision.collider.CompareTag("Space"))
+        if (collision.collider.CompareTag("Fire"))
         {
             StartCoroutine(TeleportSequence());
         }
@@ -253,7 +253,7 @@ public class Player : MonoBehaviour
         else
         {
             // Teletransporta al jugador
-            transform.position = _lastSafePosition + new Vector3(-1f, 0f, 0f); // un poco a la izquierda para evitar colisiones inmediatas
+            transform.position = _lastSafePosition; // un poco a la izquierda para evitar colisiones inmediatas
         }           
 
         _isTeleporting = false;

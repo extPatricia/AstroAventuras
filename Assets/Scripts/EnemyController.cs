@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public GameObject _impactEffect;
     public Transform _puntoImpacto;
     public float _durationEffect = 0.2f;
+    public bool _moveRight = true;
 
     private Vector2 _startPosition;
     private int _direction = 1; // 1 for right, -1 for left
@@ -22,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        _direction = _moveRight ? 1 : -1;
         _startPosition = transform.position;
         _player = FindObjectOfType<Player>();
         _rb = _player.GetComponent<Rigidbody2D>();
@@ -32,9 +34,11 @@ public class EnemyController : MonoBehaviour
         if (CompareTag("Slime Enemy"))
         {
             transform.Translate(Vector2.right * _direction * _speed * Time.deltaTime);
+
             if (Vector2.Distance(_startPosition, transform.position) >= _moveDistance)
             {
                 _direction *= -1; // Change direction
+               // _startPosition = transform.position;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
                 //_spriteRenderer.flipX = !_spriteRenderer.flipX; // Flip sprite, pero con esto solo gira el sprite, no todo el objeto,
