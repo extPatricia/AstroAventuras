@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     private float moveInput;
     private float verticalInput;
     private bool _isGrounded = true;
+    private bool _wasGrounded;
 
     private bool _jetpackEnabled;
 
@@ -119,8 +120,13 @@ public class Player : MonoBehaviour
         // Comprobar si está tocando el suelo
         _isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (_isGrounded ) 
-            _lastSafePosition = transform.position;
+        if (_isGrounded && !_wasGrounded)
+        {
+           // float dir = Mathf.Sign(moveInput);
+            _lastSafePosition = transform.position;// + new Vector3(-dir * 1f, 0f, 0f);
+        }
+
+        _wasGrounded = _isGrounded;
     }
     
     private void HandleMovement()
@@ -242,7 +248,7 @@ public class Player : MonoBehaviour
         // Espera el tiempo que tarda en "desaparecer"
         yield return new WaitForSeconds(_teleportDelay);
 
-        if(SceneManager.GetActiveScene().name == "Nivel_5")
+        if (SceneManager.GetActiveScene().name == "Nivel_5")
         {
             GameObject respawnPoint = GameObject.FindGameObjectWithTag("Respawn");
             if (respawnPoint != null)
@@ -253,7 +259,7 @@ public class Player : MonoBehaviour
         else
         {
             // Teletransporta al jugador
-            transform.position = _lastSafePosition; // un poco a la izquierda para evitar colisiones inmediatas
+            transform.position = _lastSafePosition;
         }           
 
         _isTeleporting = false;

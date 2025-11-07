@@ -15160,34 +15160,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2227113840182560315, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: orthographic size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.13333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.0627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.078431375
-      objectReference: {fileID: 0}
-    - target: {fileID: 2709200970632734053, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2709200970632734053, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6251103078739587695, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
       propertyPath: m_LocalPosition.x
       value: 372.9

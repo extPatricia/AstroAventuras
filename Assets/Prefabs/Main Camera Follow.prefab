@@ -61,19 +61,19 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
+  m_XDamping: 0.3
+  m_YDamping: 0.5
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.7
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.2
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 2
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.6
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 9
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -206,7 +206,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.08235294, g: 0.06666667, b: 0.13725491, a: 0}
+  m_BackGroundColor: {r: 0.078431375, g: 0.0627451, b: 0.13333334, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -231,7 +231,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
