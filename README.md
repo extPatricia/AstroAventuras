@@ -6,3 +6,5 @@ A lo largo del camino se encontrará con enemigos, obstáculos mortales y pregun
 
 Este videojuego combina la acción de un plataformas 2D clásico con un enfoque didáctico, fomentando el aprendizaje a través del juego.
 Cada nivel propone nuevos retos que requieren reflejos, estrategia y comprensión, haciendo de la experiencia algo entretenido y formativo al mismo tiempo.
+
+Enlace para jugar al videojuego en itch.io: https://extpatricia.itch.io/astroaventuras
