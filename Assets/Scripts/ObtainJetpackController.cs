@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class ObtainJetpackController : MonoBehaviour
 {
     public AudioClip _obtainSound;
+    public Light2D _jetpackLight;
 
     private Jetpack _jetpack;
     private Player _player;
@@ -61,6 +63,11 @@ public class ObtainJetpackController : MonoBehaviour
                 GameController.Instance.AddPoints(_puntosJetpack);
 
                 Destroy(gameObject);
+
+                if (_jetpackLight != null)
+                {
+                    _jetpackLight.enabled = false;
+                }
             }
         }
     }

@@ -8635,7 +8635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2227113840182560315, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
       propertyPath: m_ClearFlags
@@ -8643,7 +8643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2558786251362069465, guid: 5b6cfe78cac0e0d4bb42d5697c267331, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -11984,12 +11984,20 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 21b671f4d95ca6a468785cbef8b9fdeb, type: 3}
+    - target: {fileID: 6560256662483674238, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8995669375307545752, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     - {fileID: 3024163797629200923, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     - {fileID: 7933223463089195027, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     - {fileID: 2422956801872069249, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 6560256662483674238, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 4497669582758051809, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 5241063818044032847, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 7565634195974821192, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 505214178825103913, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
       insertIndex: -1
@@ -45465,6 +45473,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5728388785348179892, guid: e2241e3fda89e944dab25879210b2b41, type: 3}
+      propertyPath: _jetpackLight
+      value: 
+      objectReference: {fileID: 465761528}
     - target: {fileID: 5728388785348179892, guid: e2241e3fda89e944dab25879210b2b41, type: 3}
       propertyPath: _jetpackMessage
       value: 

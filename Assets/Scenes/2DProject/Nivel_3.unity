@@ -6449,16 +6449,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 45, y: -9, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 29, y: -6, z: 0}
     second:
       serializedVersion: 2
@@ -7927,7 +7917,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 2004eab85f270684fbf63236e57d650d, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 8e14b9bb5cc88534abbe49a808e9aae3, type: 2}
-  - m_RefCount: 11
+  - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 595972cc0a833574e8b03c6b4fe98603, type: 2}
   - m_RefCount: 368
     m_Data: {fileID: 11400000, guid: d6eae15ad7a11f646b701c581a40d804, type: 2}
@@ -7948,12 +7938,12 @@ Tilemap:
     m_Data: {fileID: 390395983, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1685923711, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
-  - m_RefCount: 11
+  - m_RefCount: 10
     m_Data: {fileID: -1948233982, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
   - m_RefCount: 368
     m_Data: {fileID: 859037917, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 439
+  - m_RefCount: 438
     m_Data:
       e00: 1
       e01: 0
@@ -7972,7 +7962,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 439
+  - m_RefCount: 438
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -8164,6 +8154,7 @@ GameObject:
   - component: {fileID: 862870904}
   - component: {fileID: 862870903}
   - component: {fileID: 862870902}
+  - component: {fileID: 862870905}
   m_Layer: 0
   m_Name: Puente_Destruir
   m_TagString: Untagged
@@ -8498,6 +8489,51 @@ MonoBehaviour:
   _destroyEffect: {fileID: 4608649233322872330, guid: 837ae01a7d3a8a541aae5ccb2e649a2a, type: 3}
   _destroyImpact: {fileID: 1724636904}
   _durationEffect: 0.2
+--- !u!61 &862870905
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862870900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 35.976852, y: -34.518936}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.1829033, y: 0.9000244}
+  m_EdgeRadius: 0
 --- !u!1 &882593606
 GameObject:
   m_ObjectHideFlags: 0
@@ -9384,6 +9420,10 @@ PrefabInstance:
     - {fileID: 3024163797629200923, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     - {fileID: 7933223463089195027, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     - {fileID: 2422956801872069249, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 6560256662483674238, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 4497669582758051809, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 5241063818044032847, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
+    - {fileID: 7565634195974821192, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 505214178825103913, guid: cbffc307b16bcc2469d48324e29a70cc, type: 3}
       insertIndex: -1
