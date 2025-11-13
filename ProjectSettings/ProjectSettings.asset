@@ -133,7 +133,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.0
+  bundleVersion: 1.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -153,7 +153,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.XR-Dreams.AstroAventuras
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -278,7 +279,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 94a04fad3c3790e46a196e3237b11bc1, type: 3}
+      m_Icon: {fileID: 2800000, guid: 4217cc3709f61cf48bd6d435ddf5d36f, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
