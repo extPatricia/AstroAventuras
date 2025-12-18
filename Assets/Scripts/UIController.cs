@@ -6,10 +6,11 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     #region Properties
-    #endregion
+    public static UIController Instance;
+	#endregion
 
-    #region Fields
-    [SerializeField] private Jetpack _jetpack;
+	#region Fields
+	[SerializeField] private Jetpack _jetpack;
     [SerializeField] private Slider _energySlider;
     [SerializeField] private TextMeshProUGUI _finalText;
     [SerializeField] private GameObject _finalPanel;
@@ -18,7 +19,14 @@ public class UIController : MonoBehaviour
     #region Unity Callbacks
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+		}
+
+        Instance = this;
+		DontDestroyOnLoad(gameObject);
         _energySlider.gameObject.SetActive(false);
     }
 
@@ -58,7 +66,7 @@ public class UIController : MonoBehaviour
 
     public void ShowFinalMessage()
     {
-        int puntos = GameController.Instance._puntos;
+        float puntos = GameController.Instance._puntos;
         string mensajeFinal = "¡Enhorabuena! Has logrado completar tu misión y tu nave está totalmente reparada.";
 
         if (puntos >= 100)

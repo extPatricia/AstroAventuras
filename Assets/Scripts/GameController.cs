@@ -10,13 +10,14 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
     public TMP_Text _scoreText;
-    public int _puntos = 0;
+    public float _puntos;
 
     [SerializeField] private GameObject _pauseMenu;
 
     private GameObject _pauseMenuInstance;
     private bool _isPaused = false;
     private float _pointsToRemove;
+    private float _pointsScene;
 
     private void Awake()
     {
@@ -57,12 +58,15 @@ public class GameController : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Cuando cambia de escena, limpiamos referencias destruidas
-        _pauseMenuInstance = null;
+		// Clean old references
+		_pauseMenuInstance = null;
         _isPaused = false;
         Time.timeScale = 1f;
 
-        if (scene.name == "Nivel_3")
+		// Obtain actual points in scene
+		_pointsScene = _puntos;
+
+		if (scene.name == "Nivel_3")
         {
             var player = FindObjectOfType<Player>();
             if (player != null)
@@ -127,6 +131,15 @@ public class GameController : MonoBehaviour
         // Destruimos el GameController
         Destroy(gameObject);
     }
+
+    public void RestartScene()
+    {
+        Time.timeScale = 1f; // Ensure the game is running
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        _isPaused = false;
+        _puntos = _pointsScene;
+		_scoreText.text = _puntos.ToString();
+	}
 
     public void ToggleSound()
     {

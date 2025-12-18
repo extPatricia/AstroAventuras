@@ -5,14 +5,27 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum PlayerState
+{
+    Idle,
+    Walking,
+    Jumping,
+    Flying,
+    Climbing,
+    Dying
+}
+
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
 	[SerializeField] private Jetpack _jetpack;
     private Rigidbody2D _rb;
     private Animator _anim;
+    private PlayerState _currentState;
 
-    [Header("Movimiento")]
+	[Header("Movimiento")]
     public float _speed = 5f;
     public float _forceJump = 15f;
 
@@ -43,8 +56,13 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+		}
+        Instance = this;
+		DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -129,7 +147,43 @@ public class Player : MonoBehaviour
         _wasGrounded = _isGrounded;
     }
     
-    private void HandleMovement()
+    private void ChangeState(PlayerState newState)
+    {
+        if (_currentState == newState) return;
+
+        _currentState = newState;
+
+        _anim.ResetTrigger("Jump");
+        _anim.ResetTrigger("Die");
+
+        _anim.SetBool("Walk", false);
+        _anim.SetBool("Flying", false);
+        _anim.SetBool("Climbing", false);
+
+        switch(_currentState)
+        {
+            case PlayerState.Idle:
+                // Animación de Idle
+                break;
+            case PlayerState.Walking:
+                _anim.SetBool("Walk", true);
+                break;
+            case PlayerState.Jumping:
+                _anim.SetTrigger("Jump");
+                break;
+            case PlayerState.Flying:
+                _anim.SetBool("Flying", true);
+                break;
+            case PlayerState.Climbing:
+                _anim.SetBool("Climbing", true);
+                break;
+            case PlayerState.Dying:
+                _anim.SetTrigger("Die");
+                break;
+		}
+	}
+
+	private void HandleMovement()
     {
         // Aplicar movimiento físico
         _rb.velocity = new Vector2(moveInput * _speed, _rb.velocity.y);
@@ -137,10 +191,10 @@ public class Player : MonoBehaviour
         // Girar el sprite según la dirección
         if (Mathf.Abs(moveInput) > 0.01f)
         {
-            _anim.SetBool("Walk", true);
+            ChangeState(PlayerState.Walking);
 
-            // Girar el sprite según la dirección
-            if (moveInput > 0)
+			// Girar el sprite según la dirección
+			if (moveInput > 0)
                 transform.localScale = new Vector3(-1, 1, 1);  // Mirando a la derecha
             else if (moveInput < 0)
                 transform.localScale = new Vector3(1, 1, 1); // Mirando a la izquierda
@@ -148,36 +202,35 @@ public class Player : MonoBehaviour
         else
         {
             // Si no hay movimiento, Idle
-            _anim.SetBool("Walk", false);
-        }
+            ChangeState(PlayerState.Idle);
+		}
     }
 
     private void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, 0f); // reinicia speed vertical
+			ChangeState(PlayerState.Jumping);
+			_rb.velocity = new Vector2(_rb.velocity.x, 0f); // reinicia speed vertical
             _rb.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
             _isGrounded = false;
-            _anim.SetTrigger("Jump");
-        }
+		}
     }
 
     private void HandleFlying()
     {
-        Debug.Log("Jetpack enabled: " + _jetpackEnabled);
         if (!_jetpackEnabled) return;
 
         if (Input.GetKey(KeyCode.F))
         {
             _jetpack.FlyUp();
-            _anim.SetBool("Flying", true);
-        }
+            ChangeState(PlayerState.Flying);
+		}
         else
         {
             _jetpack.StopFlying();
-            _anim.SetBool("Flying", false);
-        }
+           // ChangeState(PlayerState.Idle);
+		}
 
         //Horizontal Fly
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -192,21 +245,19 @@ public class Player : MonoBehaviour
 
     private void StartClimbing()
     {
-        _anim.SetBool("Walk", false);
-        _isClimbing = true;
+		ChangeState(PlayerState.Climbing);
+		_isClimbing = true;
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2(moveInput * _speed, verticalInput * _speedUpLadder);
-        _anim.SetBool("Climbing", true);
-    }
+	}
 
     private void StopClimbing()
     {
-        _anim.SetBool("Walk", true);
-        _isClimbing = false;
+		ChangeState(PlayerState.Idle);
+		_isClimbing = false;
         _rb.gravityScale = 1f;
         _rb.velocity = new Vector2(_rb.velocity.x, 0f);
-        _anim.SetBool("Climbing", false);
-    }
+	}
 
     private void OnDrawGizmosSelected()
     {
@@ -234,19 +285,17 @@ public class Player : MonoBehaviour
     {
         GameController.Instance.RemovePoints(2);
 
-        _anim.SetBool("Walk", false);
-
         AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
 
-        _isTeleporting = true;
+		// Activa la animación de desaparición
+		ChangeState(PlayerState.Dying);
 
+		_isTeleporting = true;
         // Detiene el movimiento del jugador
-        _rb.velocity = Vector2.zero;
-        // Activa la animación de desaparición
-        _anim.SetTrigger("Die");
+        _rb.velocity = Vector2.zero;     
 
-        // Espera el tiempo que tarda en "desaparecer"
-        yield return new WaitForSeconds(_teleportDelay);
+		// Espera el tiempo que tarda en "desaparecer"
+		yield return new WaitForSeconds(_teleportDelay);
 
         if (SceneManager.GetActiveScene().name == "Nivel_5")
         {
@@ -269,13 +318,12 @@ public class Player : MonoBehaviour
     IEnumerator ReloadLevel()
     {
         GameController.Instance.RemovePoints(2);
-        int puntosGuardados = GameController.Instance._puntos;
+        float puntosGuardados = GameController.Instance._puntos;
 
-        _anim.SetBool("Walk", false);
         AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
-        _anim.SetTrigger("Die");
+        ChangeState(PlayerState.Dying);
 
-        yield return new WaitForSeconds(_teleportDelay);
+		yield return new WaitForSeconds(_teleportDelay);
 
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
