@@ -19,18 +19,6 @@ public class ButtonController : MonoBehaviour
         _spriteRenderer.sprite = _unpressedSprite;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            _spriteRenderer.sprite = _pressedSprite;
-            if (_doorToOpen != null)
-            {
-                _doorToOpen.OpenDoor();
-            }
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!_isPressed && collision.CompareTag("Player"))

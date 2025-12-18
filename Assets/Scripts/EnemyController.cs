@@ -80,25 +80,29 @@ public class EnemyController : MonoBehaviour
 		}
 
 		Rigidbody2D playerRb = collision.collider.GetComponent<Rigidbody2D>();
-		if (playerRb != null)
-		{
-			Vector2 dir = (playerRb.position - _rb.position).normalized;
-			playerRb.AddForce(dir * _forceMagnitude, ForceMode2D.Impulse);
-		}
+        if (playerRb == null) return;
+
+       
+		Vector2 knockDir = (playerRb.transform.position - transform.position).normalized;
+		playerRb.AddForce(knockDir * _forceMagnitude, ForceMode2D.Impulse);
+
+        Debug.Log("Player knocked back with force: " + knockDir * _forceMagnitude);
+
+
 
 
 		//if (_player != null && _rb != null)
-  //      {
-  //          Vector2 bounceDirection = (_rb.transform.position - transform.position).normalized;
-  //          _rb.AddForce(bounceDirection * _forceMagnitude, ForceMode2D.Impulse); // Adjust the force as needed
+		//      {
+		//          Vector2 bounceDirection = (_rb.transform.position - transform.position).normalized;
+		//          _rb.AddForce(bounceDirection * _forceMagnitude, ForceMode2D.Impulse); // Adjust the force as needed
 
-  //          _player.enabled = false;
-  //          _animator.SetBool("Walk", false);
-  //          StartCoroutine(ReenablePlayerAfterDelay(1f));
-  //      }
-    }
+		//          _player.enabled = false;
+		//          _animator.SetBool("Walk", false);
+		//          StartCoroutine(ReenablePlayerAfterDelay(1f));
+		//      }
+	}
 
-    private IEnumerator ReenablePlayerAfterDelay(float delay)
+	private IEnumerator ReenablePlayerAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         if (_player != null)
