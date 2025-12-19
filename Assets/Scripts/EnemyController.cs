@@ -3,18 +3,34 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum EnemyType
+{
+    Slime,
+    Fly,
+    Lizard
+}
+
 public class EnemyController : MonoBehaviour
 {
-    public float _speed = 2f;                
-    public float _moveDistance = 1.5f;
-    public float _forceMagnitude = 20f;
-    public AudioClip _impactSound;
-    public GameObject _impactEffect;
-    public Transform _puntoImpacto;
-    public float _durationEffect = 0.2f;
-    public bool _moveRight = true;
+    public EnemyType EnemyType { get; set; }
 
-    private Vector2 _startPosition;
+	[Header("Movement Settings")]
+	[SerializeField] private float _speed = 2f;
+	[SerializeField] private float _moveDistance = 1.5f;
+	[SerializeField] private float _forceMagnitude = 20f;
+    [Header("Impact Settings")]
+	[SerializeField] private AudioClip _impactSound;
+	[SerializeField] private GameObject _impactEffect;
+	[SerializeField] private Transform _impactPoint;
+    [SerializeField] private float _durationEffect = 0.2f;
+    [Header("Initial Direction")]
+	[SerializeField] private bool _moveRight = true;
+    [Header("Health Enemy")]
+    [SerializeField] private int _healthSlime = 1;
+    [SerializeField] private int _healthFly = 2;
+    [SerializeField] private int _healthLizard = 3;
+
+	private Vector2 _startPosition;
     private int _direction = 1; // 1 for right, -1 for left
 
 	private float _leftLimit;
@@ -35,9 +51,11 @@ public class EnemyController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
+
     private void FixedUpdate()
     {
-        if (CompareTag("Slime Enemy"))
+        //TODO
+        if (CompareTag("Fly Enemy"))
         {
             _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
 
@@ -58,9 +76,38 @@ public class EnemyController : MonoBehaviour
             transform.position = new Vector2(transform.position.x, newY);
         }
 
-    }
+	}
 
-    private void Flip()
+    public void TakeDamage(int damage)
+    {
+        //TODO
+        if (CompareTag("Slime Enemy"))
+        {
+            _healthSlime -= damage;
+            if (_healthSlime <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (CompareTag("Fly Enemy"))
+        {
+            _healthFly -= damage;
+            if (_healthFly <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (CompareTag("Lizard Enemy"))
+        {
+            _healthLizard -= damage;
+            if (_healthLizard <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+	}
+
+	private void Flip()
     {
         _direction *= -1;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -70,7 +117,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.collider.CompareTag("Player"))
         {
-            GameObject effect = Instantiate(_impactEffect, _puntoImpacto.position, Quaternion.identity);
+            GameObject effect = Instantiate(_impactEffect, _impactPoint.position, Quaternion.identity);
             AudioSource.PlayClipAtPoint(_impactSound, Camera.main.transform.position);
             
             // Destroy the effect after the specified duration
@@ -110,4 +157,5 @@ public class EnemyController : MonoBehaviour
             _player.enabled = true;
         }
     }
+
 }

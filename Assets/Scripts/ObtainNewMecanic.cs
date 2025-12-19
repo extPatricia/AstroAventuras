@@ -22,7 +22,7 @@ public class ObtainNewMecanic : MonoBehaviour
 
 	private string _jetpackMessage = "¡Has obtenido el Jetpack!\r\nPulsa 'F' para volar.\r\nLas bombas te quitarán energía de tu jetpack.\r\n¡Aprovecha los terminales de preguntas para obtener más energía!";
 	private string _springMessage = "¡Has descubierto los Trampolines!\r\nSúbete encima y pulsa 'R' para saltar mucho más alto";
-	private string _shootMessage = "¡Has obtenido la habilidad de Disparar!\r\nPresiona 'L' para disparar a los enemigos y ganar puntos.";
+	private string _shootMessage = "¡Has obtenido la habilidad de Disparar!\r\nPresiona 'E' para disparar a los enemigos y ganar puntos.";
 	#endregion
 
 	#region Unity Callbacks
@@ -55,13 +55,14 @@ public class ObtainNewMecanic : MonoBehaviour
 			switch (TypeOfMecanic)
 			{
 				case MecanicType.Jetpack:
-					_player.SetEnableJetpack(true);
 					_messageComponent.ShowMessage(_jetpackMessage);
+					_player.SetEnableJetpack(true);
 					//FindAnyObjectByType<UIController>().SetJetpack(_jetpack);
 					//GameController.Instance.AddPoints(10);
 					break;
 				case MecanicType.Shoot:
 					_messageComponent.ShowMessage(_shootMessage);
+					_player.SetEnableShooting(true);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

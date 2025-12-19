@@ -12,7 +12,8 @@ public enum PlayerState
     Jumping,
     Flying,
     Climbing,
-    Dying
+    Dying,
+    Shooting
 }
 
 [RequireComponent(typeof(Animator))]
@@ -53,8 +54,9 @@ public class Player : MonoBehaviour
     private bool _wasGrounded;
 
     private bool _jetpackEnabled;
+    private bool _shootingEnabled;
 
-    private void Awake()
+	private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -105,7 +107,9 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (_inLadderZone && Mathf.Abs(verticalInput) > 0.01f)
+		
+
+		if (_inLadderZone && Mathf.Abs(verticalInput) > 0.01f)
         {
             StartClimbing();
         }
@@ -118,6 +122,7 @@ public class Player : MonoBehaviour
             HandleMovement();
             HandleJump();
             HandleFlying();
+            HandleShooting();
         }
     }
     public void SetOnLadder(bool value)
@@ -133,7 +138,12 @@ public class Player : MonoBehaviour
         _jetpackEnabled = value;
     }
 
-    private void FixedUpdate()
+    public void SetEnableShooting(bool value)
+    {
+        _shootingEnabled = value;
+	}
+
+	private void FixedUpdate()
     {
         // Comprobar si está tocando el suelo
         _isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -159,8 +169,9 @@ public class Player : MonoBehaviour
         _anim.SetBool("Walk", false);
         _anim.SetBool("Flying", false);
         _anim.SetBool("Climbing", false);
+        _anim.SetBool("Shooting", false);
 
-        switch(_currentState)
+		switch (_currentState)
         {
             case PlayerState.Idle:
                 // Animación de Idle
@@ -179,6 +190,9 @@ public class Player : MonoBehaviour
                 break;
             case PlayerState.Dying:
                 _anim.SetTrigger("Die");
+                break;
+            case PlayerState.Shooting:
+                _anim.SetBool("Shooting", true);
                 break;
 		}
 	}
@@ -242,6 +256,16 @@ public class Player : MonoBehaviour
             _jetpack.FlyHorizontal(Jetpack.Direction.Right);
         }
     }
+
+    private void HandleShooting()
+    {
+        if (!_shootingEnabled) return;
+
+		if (Input.GetKey(KeyCode.E))
+		{
+			ChangeState(PlayerState.Shooting);
+		}		
+	}
 
     private void StartClimbing()
     {
