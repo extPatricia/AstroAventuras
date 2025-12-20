@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef49d2c83519b994db293a858b4fb9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messageText: {fileID: 0}
-  _closeButton: {fileID: 0}
+  _messageText: {fileID: 2070417471248971378}
+  _closeButton: {fileID: 6106204049098598450}
 --- !u!223 &7467573310707281760
 Canvas:
   m_ObjectHideFlags: 0

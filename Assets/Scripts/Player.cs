@@ -21,40 +21,47 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
+	#region Fields
 	[SerializeField] private Jetpack _jetpack;
     private Rigidbody2D _rb;
     private Animator _anim;
     private PlayerState _currentState;
 
 	[Header("Movimiento")]
-    public float _speed = 5f;
-    public float _forceJump = 15f;
+	[SerializeField] private float _speed = 5f;
+	[SerializeField] private float _forceJump = 15f;
 
     [Header("Chequeo de suelo")]
-    public Transform groundCheck;      // Objeto bajo los pies
-    public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
+	[SerializeField] private Transform groundCheck;      // Objeto bajo los pies
+	[SerializeField] private float groundCheckRadius = 0.2f;
+	[SerializeField] private LayerMask groundLayer;
 
     [Header("Escalera")]
-    public float _speedUpLadder = 3f;
-	private bool _inLadderZone = false;
-    private bool _isClimbing = false;
+	[SerializeField] private float _speedUpLadder = 3f;
+	[SerializeField] private bool _inLadderZone = false;
+	[SerializeField] private bool _isClimbing = false;
 
     [Header("Muerte")]
-    public float _teleportDelay = 1.6f;  // Tiempo que tarda la animación de desaparecer
-    public float _deathDelay = 1f;
+	[SerializeField] private float _teleportDelay = 1.6f;  // Tiempo que tarda la animación de desaparecer
+	[SerializeField] private AudioClip _deathSound;
+	[SerializeField] private AudioClip _gameOverSound; 
     private bool _isTeleporting = false;
-    public AudioClip _deathSound;
-    public AudioClip _gameOverSound; 
     private Vector3 _lastSafePosition;
 
-    private float moveInput;
+    [Header("Shooting")]
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _shootPoint;
+	[SerializeField] private Transform _gun;
+
+	private float moveInput;
     private float verticalInput;
     private bool _isGrounded = true;
     private bool _wasGrounded;
 
     private bool _jetpackEnabled;
     private bool _shootingEnabled;
+    private bool _gunLeft = false;
+	#endregion
 
 	private void Awake()
     {
@@ -107,9 +114,10 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-		
+        if (moveInput > 0) _gunLeft = false;
+        else if (moveInput < 0) _gunLeft = true;
 
-		if (_inLadderZone && Mathf.Abs(verticalInput) > 0.01f)
+        if (_inLadderZone && Mathf.Abs(verticalInput) > 0.01f)
         {
             StartClimbing();
         }
@@ -125,7 +133,9 @@ public class Player : MonoBehaviour
             HandleShooting();
         }
     }
-    public void SetOnLadder(bool value)
+
+
+	public void SetOnLadder(bool value)
     {
         _inLadderZone = value; 
 
@@ -156,8 +166,8 @@ public class Player : MonoBehaviour
 
         _wasGrounded = _isGrounded;
     }
-    
-    private void ChangeState(PlayerState newState)
+
+	private void ChangeState(PlayerState newState)
     {
         if (_currentState == newState) return;
 
@@ -261,9 +271,15 @@ public class Player : MonoBehaviour
     {
         if (!_shootingEnabled) return;
 
-		if (Input.GetKey(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E))
 		{
 			ChangeState(PlayerState.Shooting);
+
+            GameObject bulletObj = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+
+            Vector2 shootDirection = _gunLeft ? Vector2.left : Vector2.right;
+            bullet.SetDirection(shootDirection);
 		}		
 	}
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1782966456153532576}
   m_Layer: 0
   m_Name: EnemySlime
-  m_TagString: Slime Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,9 +53,12 @@ MonoBehaviour:
   _forceMagnitude: 20
   _impactSound: {fileID: 8300000, guid: b325fa8bae457614f986c5ccc2a7979b, type: 3}
   _impactEffect: {fileID: 1684126113314589996, guid: 6f005e7abc53fab45b874e71ed7aeed0, type: 3}
-  _puntoImpacto: {fileID: 4335753748139545676}
+  _impactPoint: {fileID: 0}
   _durationEffect: 0.2
   _moveRight: 1
+  _healthSlime: 1
+  _healthFly: 2
+  _healthLizard: 3
 --- !u!212 &7522991053983647452
 SpriteRenderer:
   m_ObjectHideFlags: 0

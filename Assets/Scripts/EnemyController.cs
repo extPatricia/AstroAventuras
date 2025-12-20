@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,7 +13,7 @@ public enum EnemyType
 
 public class EnemyController : MonoBehaviour
 {
-    public EnemyType EnemyType { get; set; }
+    [field:SerializeField] public EnemyType EnemyType { get; set; }
 
 	[Header("Movement Settings")]
 	[SerializeField] private float _speed = 2f;
@@ -54,57 +55,62 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //TODO
-        if (CompareTag("Fly Enemy"))
+        switch(EnemyType)
         {
-            _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
-
-            if (transform.position.x <= _leftLimit && _direction < 0)
-            {
-                Flip();
-			}
-
-            if (transform.position.x >= _rightLimit && _direction > 0)
-            {
-                Flip();
-            }
+            case EnemyType.Slime:
+			case EnemyType.Lizard:
+				MoveSlimeAndLizard();
+                break;
+            case EnemyType.Fly:
+                MoveFly();
+                break;
 		}
-        
-        else if (CompareTag("Fly Enemy"))
-        {
-            float newY = _startPosition.y + Mathf.PingPong(Time.time * _speed, _moveDistance * 2) - _moveDistance;
-            transform.position = new Vector2(transform.position.x, newY);
-        }
-
 	}
 
     public void TakeDamage(int damage)
     {
-        //TODO
-        if (CompareTag("Slime Enemy"))
+		switch(EnemyType)
         {
-            _healthSlime -= damage;
-            if (_healthSlime <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-        else if (CompareTag("Fly Enemy"))
+            case EnemyType.Slime:
+                DieEnemy(_healthSlime, damage);
+                break;
+            case EnemyType.Fly:
+				DieEnemy(_healthFly, damage);
+                break;
+            case EnemyType.Lizard:
+				DieEnemy(_healthLizard, damage);
+				break;
+		}
+	}
+
+	private void DieEnemy(int health, int damage)
+	{
+        health -= damage;
+		if (health <= 0)
         {
-            _healthFly -= damage;
-            if (_healthFly <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-        else if (CompareTag("Lizard Enemy"))
-        {
-            _healthLizard -= damage;
-            if (_healthLizard <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
+            Destroy(gameObject);
+		}
+	}
+
+	private void MoveSlimeAndLizard()
+    {
+		_rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+
+		if (transform.position.x <= _leftLimit && _direction < 0)
+		{
+			Flip();
+		}
+
+		if (transform.position.x >= _rightLimit && _direction > 0)
+		{
+			Flip();
+		}
+	}
+
+    private void MoveFly()
+    {
+		float newY = _startPosition.y + Mathf.PingPong(Time.time * _speed, _moveDistance * 2) - _moveDistance;
+		transform.position = new Vector2(transform.position.x, newY);
 	}
 
 	private void Flip()
