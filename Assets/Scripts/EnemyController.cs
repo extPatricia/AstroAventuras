@@ -39,7 +39,6 @@ public class EnemyController : MonoBehaviour
 
 	private Player _player;
     private Rigidbody2D _rb;
-    private Animator _animator;
 
     private void Start()
     {
@@ -50,7 +49,6 @@ public class EnemyController : MonoBehaviour
 		_rightLimit = transform.position.x + _moveDistance;
 
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -128,31 +126,22 @@ public class EnemyController : MonoBehaviour
             
             // Destroy the effect after the specified duration
             Destroy(effect, _durationEffect);
-            
-           // GameController.Instance.RemovePoints(4);
-		}
 
-		Rigidbody2D playerRb = collision.collider.GetComponent<Rigidbody2D>();
-        if (playerRb == null) return;
+			GameController.Instance.RemovePoints(4);
 
-       
-		Vector2 knockDir = (playerRb.transform.position - transform.position).normalized;
-		playerRb.AddForce(knockDir * _forceMagnitude, ForceMode2D.Impulse);
+			Vector2 bounceDirection = (collision.transform.position - transform.position).normalized;
+			_player = collision.collider.GetComponent<Player>();
+			if (_player != null)
+			{
+				_player.enabled = false;
+				Rigidbody2D playerRb = collision.collider.GetComponent<Rigidbody2D>();
+				if (playerRb == null) return;
 
-        Debug.Log("Player knocked back with force: " + knockDir * _forceMagnitude);
+				playerRb.AddForce(bounceDirection * _forceMagnitude, ForceMode2D.Impulse);
+				StartCoroutine(ReenablePlayerAfterDelay(0.5f)); // Adjust delay as needed
+			}
 
-
-
-
-		//if (_player != null && _rb != null)
-		//      {
-		//          Vector2 bounceDirection = (_rb.transform.position - transform.position).normalized;
-		//          _rb.AddForce(bounceDirection * _forceMagnitude, ForceMode2D.Impulse); // Adjust the force as needed
-
-		//          _player.enabled = false;
-		//          _animator.SetBool("Walk", false);
-		//          StartCoroutine(ReenablePlayerAfterDelay(1f));
-		//      }
+		}     
 	}
 
 	private IEnumerator ReenablePlayerAfterDelay(float delay)

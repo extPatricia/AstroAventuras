@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: _moveRight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757137352819540573, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 911114101}
     - target: {fileID: 8353307227675876010, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
       propertyPath: m_Name
       value: EnemySlime (4)
@@ -1360,6 +1364,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!4 &168177620 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7047421516636517644, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+  m_PrefabInstance: {fileID: 687692309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &189585184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2250,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757137352819540573, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 1883492679}
     - target: {fileID: 8353307227675876010, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
       propertyPath: m_Name
       value: EnemySlime (1)
@@ -2547,6 +2560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFly (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8960731868971610010, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 461034616}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2914,6 +2931,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 306fd0c33abab154bb44674954e9518e, type: 3}
+--- !u!4 &461034616 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7047421516636517644, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+  m_PrefabInstance: {fileID: 398805855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &467562693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3442,6 +3464,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &611451344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7047421516636517644, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+  m_PrefabInstance: {fileID: 768804193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &678231262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3498,6 +3525,10 @@ PrefabInstance:
       propertyPath: _moveRight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757137352819540573, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 1516546069}
     - target: {fileID: 8353307227675876010, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
       propertyPath: m_Name
       value: EnemySlime (2)
@@ -3693,6 +3724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFly (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8960731868971610010, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 168177620}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7490,6 +7525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFly
       objectReference: {fileID: 0}
+    - target: {fileID: 8960731868971610010, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 611451344}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8035,6 +8074,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757137352819540573, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 992131268}
     - target: {fileID: 8353307227675876010, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
       propertyPath: m_Name
       value: EnemySlime (3)
@@ -8075,6 +8118,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1246709272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &892562728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7047421516636517644, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+  m_PrefabInstance: {fileID: 1153074108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &911114101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4335753748139545676, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+  m_PrefabInstance: {fileID: 19843384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920722834
 GameObject:
   m_ObjectHideFlags: 0
@@ -9276,6 +9329,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!4 &992131268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4335753748139545676, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+  m_PrefabInstance: {fileID: 828280298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &997953053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10010,6 +10068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFly (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8960731868971610010, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 892562728}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10238,6 +10300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757137352819540573, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 1384774366}
     - target: {fileID: 8353307227675876010, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
       propertyPath: m_Name
       value: EnemySlime
@@ -11533,6 +11599,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1516546069 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4335753748139545676, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+  m_PrefabInstance: {fileID: 678231262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517312751
 GameObject:
   m_ObjectHideFlags: 0
@@ -12375,6 +12446,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680248469}
   m_CullTransparentMesh: 1
+--- !u!4 &1688282056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7047421516636517644, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+  m_PrefabInstance: {fileID: 2135675426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1727889068
 GameObject:
   m_ObjectHideFlags: 0
@@ -12766,6 +12842,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b9b97a0e8846f44b2e3a70f0a50f20, type: 3}
+--- !u!4 &1883492679 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4335753748139545676, guid: b9ac06a3640278f47b6d2f56723b11b1, type: 3}
+  m_PrefabInstance: {fileID: 298982692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1886007020
 GameObject:
   m_ObjectHideFlags: 0
@@ -43940,6 +44021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFly (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8960731868971610010, guid: 0a12ceaa798a63c4bbb71206a510fed6, type: 3}
+      propertyPath: _impactPoint
+      value: 
+      objectReference: {fileID: 1688282056}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
