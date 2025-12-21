@@ -70,23 +70,42 @@ public class EnemyController : MonoBehaviour
 		switch(EnemyType)
         {
             case EnemyType.Slime:
-                DieEnemy(_healthSlime, damage);
+                DieSlime(damage);
                 break;
             case EnemyType.Fly:
-				DieEnemy(_healthFly, damage);
+				DieFly(damage);
                 break;
             case EnemyType.Lizard:
-				DieEnemy(_healthLizard, damage);
+				DieLizard(damage);
 				break;
 		}
 	}
 
-	private void DieEnemy(int health, int damage)
+	private void DieSlime(int damage)
 	{
-        health -= damage;
-		if (health <= 0)
+        _healthSlime -= damage;
+		if (_healthSlime <= 0)
         {
-            Destroy(gameObject);
+			GameController.Instance.AddPoints(1);
+			Destroy(gameObject);
+		}
+	}
+	private void DieFly(int damage)
+	{
+		_healthFly -= damage;
+		if (_healthFly <= 0)
+		{
+			GameController.Instance.AddPoints(1);
+			Destroy(gameObject);
+		}
+	}
+	private void DieLizard(int damage)
+	{
+		_healthLizard -= damage;
+		if (_healthLizard <= 0)
+		{
+			GameController.Instance.AddPoints(2);
+			Destroy(gameObject);
 		}
 	}
 
