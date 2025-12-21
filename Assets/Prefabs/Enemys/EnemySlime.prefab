@@ -52,7 +52,7 @@ MonoBehaviour:
   _speed: 2
   _moveDistance: 1.5
   _forceMagnitude: 20
-  _impactSound: {fileID: 8300000, guid: b325fa8bae457614f986c5ccc2a7979b, type: 3}
+  _impactSound: {fileID: 8300000, guid: d9d51c78fc4a24e4dbe7faab144adf05, type: 3}
   _impactEffect: {fileID: 1684126113314589996, guid: 6f005e7abc53fab45b874e71ed7aeed0, type: 3}
   _impactPoint: {fileID: 0}
   _durationEffect: 0.2

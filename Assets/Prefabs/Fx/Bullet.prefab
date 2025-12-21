@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _damage: 1
+  _impactSound: {fileID: 8300000, guid: b325fa8bae457614f986c5ccc2a7979b, type: 3}
 --- !u!212 &1022999147782237482
 SpriteRenderer:
   m_ObjectHideFlags: 0

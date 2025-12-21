@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 	#region Fields
 	[SerializeField] private float _speed = 10f;
 	[SerializeField] private int _damage = 1;
+	[SerializeField] private AudioClip _impactSound;
 	private Vector2 _direction;
 	#endregion
 
@@ -39,7 +40,7 @@ public class Bullet : MonoBehaviour
 		if (collision.CompareTag("Enemy"))
 		{
 			collision.GetComponent<EnemyController>()?.TakeDamage(_damage);
-			
+			AudioSource.PlayClipAtPoint(_impactSound, Camera.main.transform.position);
 		}
 		Destroy(gameObject);
 	}
