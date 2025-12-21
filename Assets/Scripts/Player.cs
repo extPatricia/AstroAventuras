@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _shootPoint;
 	[SerializeField] private Transform _gun;
+    [SerializeField] private AudioClip _shootSound;
 
 	private float moveInput;
     private float verticalInput;
@@ -277,9 +278,17 @@ public class Player : MonoBehaviour
 
             GameObject bulletObj = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
             Bullet bullet = bulletObj.GetComponent<Bullet>();
+			SpriteRenderer spriteBullet = bulletObj.GetComponent<SpriteRenderer>();
 
+            if (!_gunLeft)
+            {
+                bulletObj.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+			}
             Vector2 shootDirection = _gunLeft ? Vector2.left : Vector2.right;
+           
             bullet.SetDirection(shootDirection);
+
+            AudioSource.PlayClipAtPoint(_shootSound, Camera.main.transform.position);
 		}		
 	}
 
