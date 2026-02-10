@@ -9,6 +9,14 @@ Cada nivel propone nuevos retos que requieren reflejos, estrategia y comprensió
 
 Enlace para jugar al videojuego en itch.io: https://extpatricia.itch.io/astroaventuras
 
+---
+
+In a world full of floating platforms, traps, and mysteries, an explorer equipped with a jetpack sets out to overcome every challenge in order to reach his goal. The player must jump, fly, and dodge dangers while collecting energy points that allow them to keep their jetpack active. Along the way, they will face enemies, deadly obstacles, and educational questions that will test both their skills and their knowledge.
+
+This video game combines the action of a classic 2D platformer with an educational approach, encouraging learning through play. Each level introduces new challenges that require reflexes, strategy, and understanding, making the experience both entertaining and instructive at the same time.
+
+Play the game on itch.io: https://extpatricia.itch.io/astroaventuras
+
 <img width="1405" height="794" alt="Captura_3" src="https://github.com/user-attachments/assets/96b6cf76-36ca-4622-befb-b41e2e2f96d4" />
 <img width="1406" height="796" alt="Captura_2" src="https://github.com/user-attachments/assets/8d14d3e0-47e8-43c5-8d24-2fc265ba4caa" />
 <img width="1410" height="802" alt="Captura" src="https://github.com/user-attachments/assets/b1cd7c67-30ed-4c82-b770-171488a6837d" />
