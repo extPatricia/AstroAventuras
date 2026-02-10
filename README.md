@@ -9,5 +9,6 @@ Cada nivel propone nuevos retos que requieren reflejos, estrategia y comprensió
 
 Enlace para jugar al videojuego en itch.io: https://extpatricia.itch.io/astroaventuras
 
-<img width="250" height="141" alt="image" src="https://github.com/user-attachments/assets/55f59fe9-4ae0-4c7b-a09d-d341a0b69036" />
-
+<img width="1405" height="794" alt="Captura_3" src="https://github.com/user-attachments/assets/96b6cf76-36ca-4622-befb-b41e2e2f96d4" />
+<img width="1406" height="796" alt="Captura_2" src="https://github.com/user-attachments/assets/8d14d3e0-47e8-43c5-8d24-2fc265ba4caa" />
+<img width="1410" height="802" alt="Captura" src="https://github.com/user-attachments/assets/b1cd7c67-30ed-4c82-b770-171488a6837d" />
