@@ -8,3 +8,6 @@ Este videojuego combina la acción de un plataformas 2D clásico con un enfoque 
 Cada nivel propone nuevos retos que requieren reflejos, estrategia y comprensión, haciendo de la experiencia algo entretenido y formativo al mismo tiempo.
 
 Enlace para jugar al videojuego en itch.io: https://extpatricia.itch.io/astroaventuras
+
+<img width="250" height="141" alt="image" src="https://github.com/user-attachments/assets/55f59fe9-4ae0-4c7b-a09d-d341a0b69036" />
+
